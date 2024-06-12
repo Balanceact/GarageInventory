@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarageInventory", "GarageInventory\GarageInventory.csproj", "{3A70224C-42E0-4B9F-A42C-9E135D3B29E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GarageInventory", "GarageInventory\GarageInventory.csproj", "{3A70224C-42E0-4B9F-A42C-9E135D3B29E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B3CF16C9-2DF4-4A03-B2E4-1F42B537E29C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A39C75BF-0B73-4A6A-879B-BB3C1E38A117}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A70224C-42E0-4B9F-A42C-9E135D3B29E9} = {B3CF16C9-2DF4-4A03-B2E4-1F42B537E29C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3712D277-6F5E-4E41-84CA-9553183A512E}
