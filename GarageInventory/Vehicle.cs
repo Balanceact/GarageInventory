@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GarageInventory
 {
-    internal class Vehicle
+    internal abstract class Vehicle
     {
         private string _licensePlateNumber;
         private string _color;
@@ -42,13 +42,15 @@ namespace GarageInventory
     internal class Airplane : Vehicle
     {
         private int _wingspan;
+        private int _numberOfEngines;
 
         public int Wingspan { get { return _wingspan; } set { _wingspan = value; } }
 
-        public Airplane(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent, int wingspan) 
+        public Airplane(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent, int wingspan, int numberOfEngines) 
             : base(licensePlateNumber, color, numberOfWheels, make, model, year, description, forRent)
         {
             _wingspan = wingspan;
+            _numberOfEngines = numberOfEngines;
         }
 
     }

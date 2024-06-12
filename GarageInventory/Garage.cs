@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace GarageInventory
 {
-    internal class Garage
+    internal class Garage<T> where T : Vehicle , IEnumerable
     {
+        
     }
 }
