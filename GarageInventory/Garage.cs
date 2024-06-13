@@ -10,18 +10,18 @@ namespace GarageInventory
 {
     internal class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
     {
-        private T[] _listOfVehicles;
+        private T[] _array;
         private int _capacity;
         private int _parkingSpacesFilled;
 
         public int ParkingSpacesFilled { get { return _parkingSpacesFilled; } }
         public int Capacity { get { return _capacity; } set { _capacity = value; } }
 
-        public T this[int index] => _listOfVehicles[index];
+        public T this[int index] => _array[index];
 
         public Garage(int capacity)
         {
-            _listOfVehicles = new T[capacity];
+            _array = new T[capacity];
             _capacity = capacity;
             _parkingSpacesFilled = 0;
         }
@@ -32,7 +32,7 @@ namespace GarageInventory
             //{
             //    yield return _listOfVehicles[i];
             //}
-            foreach (var item in _listOfVehicles)
+            foreach (var item in _array)
             {
                 yield return item;
             }
