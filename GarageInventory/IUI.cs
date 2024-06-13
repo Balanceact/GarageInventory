@@ -5,7 +5,7 @@ namespace GarageInventory
     {
         int AskForInt(string prompt);
         string AskForString(string prompt);
-        ConsoleKeyInfo ReadKey();
+        ConsoleKey ReadKey();
         string ReadLine();
         void Write(string message);
         void WriteLine(string message);

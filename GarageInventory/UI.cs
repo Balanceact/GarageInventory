@@ -10,7 +10,7 @@ namespace GarageInventory
     {
         public void Write(string message) { Console.Write(message); }
         public void WriteLine(string message) { Console.WriteLine(message); }
-        public ConsoleKeyInfo ReadKey() => Console.ReadKey(true);
+        public ConsoleKey ReadKey() => Console.ReadKey(intercept: true).Key;
         public string ReadLine()
         {
             string input;
