@@ -47,7 +47,7 @@ namespace GarageInventory
 
         private void Initialize()
         {
-            //ToDo: Remove dependency.
+            //ToDo: Remove dependency on Console.
             Console.CursorVisible = false;
         }
 
@@ -90,10 +90,10 @@ namespace GarageInventory
                 if (i == choice)
                 {
                     Console.BackgroundColor = ConsoleColor.Blue;
-                    Console.ForegroundColor = ConsoleColor.White;
+                    //Console.ForegroundColor = ConsoleColor.Black;
                     UI.WriteLine(MainMenuList[i - 1]);
                     Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
+                    //Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
@@ -102,12 +102,8 @@ namespace GarageInventory
 
             }
         }
-        private void OptionsMenu()
-        {
-            throw new NotImplementedException();
-        }
 
-        private void SaveGarage()
+        private void NewGarage()
         {
             throw new NotImplementedException();
         }
@@ -117,9 +113,15 @@ namespace GarageInventory
             throw new NotImplementedException();
         }
 
-        private void NewGarage()
+        private void SaveGarage()
         {
             throw new NotImplementedException();
         }
+
+        private void OptionsMenu()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
