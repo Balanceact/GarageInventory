@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace GarageInventory
 {
-    public class UI
+    public class UI : IUI
     {
-        public static void Write(string message)
-        {
-            Console.Write(message);
-        }
-        public static void WriteLine(string message)
-        {
-            Console.WriteLine(message);
-        }
-        public static string ReadLine()
+        public void Write(string message) { Console.Write(message); }
+        public void WriteLine(string message) { Console.WriteLine(message); }
+        public ConsoleKeyInfo ReadKey() => Console.ReadKey(true);
+        public string ReadLine()
         {
             string input;
             do
@@ -24,42 +19,31 @@ namespace GarageInventory
                 input = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(input))
                 {
-                    UI.WriteLine("Input a valid option.");
+                    Console.WriteLine("Input a valid option.");
                 }
             } while (string.IsNullOrWhiteSpace(input));
             return input;
         }
-        public static ConsoleKeyInfo ReadKey() => Console.ReadKey(true);
-
-        public static string AskForString(string prompt)
+        public string AskForString(string prompt)
         {
             bool fail = true;
-            string given;
-            do
-            {
-                UI.WriteLine($"{prompt}: ");
-                given = UI.ReadLine()!;
-                if (string.IsNullOrWhiteSpace(given))
-                {
-                    UI.WriteLine($"You have to supply a valid {prompt}");
-                }
+            string input;
+            do {
+                Console.WriteLine($"{prompt}: ");
+                input = Console.ReadLine()!;
+                if (string.IsNullOrWhiteSpace(input))
+                    Console.WriteLine($"You have to supply a valid {prompt}");
                 else
-                {
                     fail = false;
-                }
             } while (fail);
-            return given;
+            return input;
         }
-
-        public static int AskForInt(string prompt)
+        public int AskForInt(string prompt)
         {
-            do
-            {
+            do {
                 string given = AskForString(prompt);
                 if (int.TryParse(given, out int result))
-                {
                     return result;
-                }
             } while (true);
         }
 

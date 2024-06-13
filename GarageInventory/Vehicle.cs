@@ -9,24 +9,24 @@ namespace GarageInventory
     internal abstract class Vehicle
     {
         private string _licensePlateNumber;
-        private string _color;
-        private int _numberOfWheels;
         private string _make;
         private string _model;
         private int _year;
+        private int _numberOfWheels;
+        private string _color;
         private string _description;
         private bool _forRent;
 
         public string LicensePlateNumber { get { return _licensePlateNumber; } set { _licensePlateNumber = value; } }
-        public string Color { get { return _color; } set { _color = value; } }
-        public int NumberOfWheels { get { return _numberOfWheels; } set { _numberOfWheels = value; } }
         public string Make { get { return _make; } set { _make = value; } }
         public string Model { get { return _model; } set { _model = value; } }
         public int Year { get { return _year; } set { _year = value; } }
+        public int NumberOfWheels { get { return _numberOfWheels; } set { _numberOfWheels = value; } }
+        public string Color { get { return _color; } set { _color = value; } }
         public string Description { get { return _description; } set { _description = value; } }
         public bool ForRent { get { return _forRent; } set { _forRent = value; } }
 
-        public Vehicle(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent)
+        public Vehicle(string licensePlateNumber, string make, string model, int year, int numberOfWheels, string color, string description, bool forRent)
         {
             _licensePlateNumber = licensePlateNumber;
             _color = color;
@@ -46,8 +46,8 @@ namespace GarageInventory
 
         public int Wingspan { get { return _wingspan; } set { _wingspan = value; } }
 
-        public Airplane(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent, int wingspan, int numberOfEngines)
-            : base(licensePlateNumber, color, numberOfWheels, make, model, year, description, forRent)
+        public Airplane(string licensePlateNumber, string make, string model, int year, int numberOfWheels, string color, string description, bool forRent, int wingspan, int numberOfEngines)
+            : base(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent)
         {
             _wingspan = wingspan;
             _numberOfEngines = numberOfEngines;
@@ -60,8 +60,8 @@ namespace GarageInventory
 
         public int Length { get { return _length; } set { _length = value; } }
 
-        public Boat(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent, int length)
-            : base(licensePlateNumber, color, numberOfWheels, make, model, year, description, forRent)
+        public Boat(string licensePlateNumber, string make, string model, int year, int numberOfWheels, string color, string description, bool forRent, int length)
+            : base(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent)
         {
             _length = length;
         }
@@ -73,8 +73,8 @@ namespace GarageInventory
 
         public int NumberOfSeats { get { return _numberOfSeats; } set { _numberOfSeats = value; } }
 
-        public Bus(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent, int numberOfSeats)
-            : base(licensePlateNumber, color, numberOfWheels, make, model, year, description, forRent)
+        public Bus(string licensePlateNumber, string make, string model, int year, int numberOfWheels, string color, string description, bool forRent, int numberOfSeats)
+            : base(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent)
         {
             _numberOfSeats = numberOfSeats;
         }
@@ -86,8 +86,8 @@ namespace GarageInventory
 
         public string FuelType { get { return _fuelType; } set { _fuelType = value; } }
 
-        public Car(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent, string fuelType)
-            : base(licensePlateNumber, color, numberOfWheels, make, model, year, description, forRent)
+        public Car(string licensePlateNumber, string make, string model, int year, int numberOfWheels, string color, string description, bool forRent, string fuelType)
+            : base(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent)
         {
             _fuelType = fuelType;
         }
@@ -99,8 +99,8 @@ namespace GarageInventory
 
         public int CylinderVolumeInCC { get { return _cylinderVolumeInCC; } set { _cylinderVolumeInCC = value; } }
 
-        public Motorcycle(string licensePlateNumber, string color, int numberOfWheels, string make, string model, int year, string description, bool forRent, int cylinderVolumeInCC)
-            : base(licensePlateNumber, color, numberOfWheels, make, model, year, description, forRent)
+        public Motorcycle(string licensePlateNumber, string make, string model, int year, int numberOfWheels, string color, string description, bool forRent, int cylinderVolumeInCC)
+            : base(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent)
         {
             _cylinderVolumeInCC = cylinderVolumeInCC;
         }
