@@ -8,5 +8,6 @@ namespace GarageInventory
 {
     internal class Handler
     {
+
     }
 }

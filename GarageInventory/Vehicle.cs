@@ -106,4 +106,16 @@ namespace GarageInventory
         }
 
     }
+    internal class Truck : Vehicle
+    {
+        private bool _isElectric;
+
+        public bool IsElectric { get { return _isElectric; } set { _isElectric = value; } }
+
+        public Truck(string licensePlateNumber, string make, string model, int year, int numberOfWheels, string color, string description, bool forRent, bool isElectric)
+            : base(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent)
+        {
+            _isElectric = isElectric;
+        }
+    }
 }

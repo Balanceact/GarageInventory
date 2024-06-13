@@ -28,10 +28,6 @@ namespace GarageInventory
 
         public IEnumerator<T> GetEnumerator()
         {
-            //for (int i = 0; i < _capacity - 1; i++)
-            //{
-            //    yield return _listOfVehicles[i];
-            //}
             foreach (var item in _array)
             {
                 yield return item;
