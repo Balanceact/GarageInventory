@@ -123,9 +123,9 @@ namespace GarageInventory
             };
         }
 
-        public void AddVehicle(Vehicle vehicle)
+        public void AddVehicleToList(Vehicle vehicle)
         {
-            if (_listOfVehicles.Count == _listOfVehicles.Count)
+            if (_listOfVehicles.ParkingSpacesFilled == _listOfVehicles.Count)
             {
                 UI.WriteLine("Garage is full!");
             }
@@ -135,6 +135,55 @@ namespace GarageInventory
                 _listOfVehicles.ParkingSpacesFilled++;
                 UI.WriteLine("Vehicle added to Garage!");
             }
+        }
+
+        public void ListTypesAndAmounts()
+        {
+            int airplane = 0, boat = 0, bus = 0, car = 0, motorcycle = 0, truck = 0;
+            foreach (Vehicle vehicle in _listOfVehicles)
+            {
+                switch (vehicle)
+                {
+                    case Airplane:
+                        airplane++;
+                        break;
+                    case Boat:
+                        boat++;
+                        break;
+                    case Bus:
+                        bus++;
+                        break;
+                    case Car:
+                        car++;
+                        break;
+                    case Motorcycle:
+                        motorcycle++;
+                        break;
+                    case Truck:
+                        truck++;
+                        break;
+                }
+            }
+            UI.Clear();
+            UI.WriteLine($"Airplane:   {airplane}");
+            UI.WriteLine($"Boat:       {boat}");
+            UI.WriteLine($"Bus:        {bus}");
+            UI.WriteLine($"Car:        {car}");
+            UI.WriteLine($"Motorcycle: {motorcycle}");
+            UI.WriteLine($"Truck:      {truck}");
+            UI.ReadKey();
+        }
+
+        public void ListAllParked()
+        {
+            // ToDo: Implement proper menu of vehicles.
+        }
+
+        public Vehicle SelectVehicle()
+        {
+            int selection = 0;
+            // ToDo: Implement proper menu and selection of vehicle.
+            return _listOfVehicles[selection];
         }
 
         public void RemoveVehicle(Vehicle vehicle)
@@ -156,36 +205,44 @@ namespace GarageInventory
             for (int i = 0; i < numberOfPredefined; i++)
             {
                 myRandom = random.Next(79 - i);
-                AddVehicle(ListOfPredefinedVehicles[myRandom]);
+                AddVehicleToList(ListOfPredefinedVehicles[myRandom]);
                 ListOfPredefinedVehicles.RemoveAt(myRandom);
+                UI.WriteLine("Predefined vehicle has been added to the garage!");
             }
+            UI.ReadKey();
+            AddVehicle(numberOfVehicles - numberOfPredefined);
+        }
+
+        public void AddVehicle(int numberOfVehicles)
+        {
             int choice = 1;
-            for (int i = 0; i < numberOfVehicles - numberOfPredefined; i++)
+            for (int i = 0; i < numberOfVehicles; i++)
             {
                 choice = UI.Menu(choice, _listOfVehicleTypes);
                 switch (choice)
                 {
                     case 1:
-                        AddVehicle(AskForAirplane());
+                        AddVehicleToList(AskForAirplane());
                         break;
                     case 2:
-                        AddVehicle(AskForBoat());
+                        AddVehicleToList(AskForBoat());
                         break;
                     case 3:
-                        AddVehicle(AskForBus());
+                        AddVehicleToList(AskForBus());
                         break;
                     case 4:
-                        AddVehicle(AskForCar());
+                        AddVehicleToList(AskForCar());
                         break;
                     case 5:
-                        AddVehicle(AskForMotorcycle());
+                        AddVehicleToList(AskForMotorcycle());
                         break;
                     case 6:
-                        AddVehicle(AskForTruck());
+                        AddVehicleToList(AskForTruck());
                         break;
                 }
+                UI.WriteLine("User defined vehicle has been added to the garage!");
             }
-
+            UI.ReadKey();
         }
 
         private Vehicle AskForAirplane()

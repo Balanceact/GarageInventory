@@ -34,7 +34,6 @@ namespace GarageInventory
         {
             Initialize();
             MainMenu();
-            GarageManager();
         }
 
         private void Initialize()
@@ -106,6 +105,7 @@ namespace GarageInventory
                 }
             } while (incorrect);
             handler.Populate(prepopulated, predefined);
+            GarageManager(handler);
         }
 
         private void LoadGarage()
@@ -118,44 +118,25 @@ namespace GarageInventory
             throw new NotImplementedException();
         }
 
-        public void GarageManager()
+        public void GarageManager(IHandler handler)
         {
             int choice = UI.Menu(1, GarageManagerMenuList);
             switch (choice)
             {
                 case 1:
-                    AddVehicle();
+                    handler.AddVehicle(1);
                     break;
                 case 2:
-                    RemoveVehicle();
+                    handler.RemoveVehicle(handler.SelectVehicle());
                     break;
                 case 3:
-                    ListAllParked();
+                    handler.ListAllParked();
                     break;
                 case 4:
-                    ListTypesAndAmounts();
+                    handler.ListTypesAndAmounts();
                     break;
             }
         }
 
-        private void AddVehicle()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RemoveVehicle()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ListAllParked()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ListTypesAndAmounts()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
