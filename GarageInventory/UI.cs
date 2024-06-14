@@ -135,5 +135,10 @@ namespace GarageInventory
 
             return choice;
         }
+
+        public void Quit()
+        {
+            System.Environment.Exit(0);
+        }
     }
 }

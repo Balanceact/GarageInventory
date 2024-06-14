@@ -51,7 +51,7 @@ namespace GarageInventory
                     SaveGarage();
                     break;
                 case 4:
-                    //ToDo: Implement Quit for when deeper in the program.
+                    UI.Quit();
                     break;
             }
         }

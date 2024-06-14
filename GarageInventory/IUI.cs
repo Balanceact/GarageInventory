@@ -12,6 +12,7 @@ namespace GarageInventory
         void MenuHighlight();
         void MenuNotSelected();
         void PrintMenu(int choice, List<string> menu);
+        void Quit();
         ConsoleKey ReadKey();
         string ReadLine();
         void ResetPosition();

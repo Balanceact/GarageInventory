@@ -23,10 +23,8 @@ namespace GarageInventory
         }
     }
 }
-/*
-    Requirements Specification
+/*  Requirements Specification
         The registration number is unique.
-
     Functionality
         It should be possible to:
             List all parked vehicles
