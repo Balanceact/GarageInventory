@@ -11,9 +11,11 @@ namespace GarageInventory
     {
         private IUI _ui;
         private List<string> _mainMenuList;
+        private List<string> _garageManagerMenuList;
 
         public IUI UI { get { return _ui; } }
         public List<string> MainMenuList { get { return _mainMenuList; } }
+        public List<string> GarageManagerMenuList { get { return _garageManagerMenuList; } }
 
         public Manager(IUI ui)
         {
@@ -22,12 +24,17 @@ namespace GarageInventory
                                                  "  Load Garage  ",
                                                  "  Save Garage  ",
                                                  "      Quit     " };
+            _garageManagerMenuList = new List<string>() { "       Add vehicle        ",
+                                                          "      Remove vehicle      ",
+                                                          "     List all parked      ",
+                                                          "  List types and amounts  " };
         }
 
         public void Run()
         {
             Initialize();
             MainMenu();
+            GarageManager();
         }
 
         private void Initialize()
@@ -83,7 +90,7 @@ namespace GarageInventory
             } while (incorrect);
             incorrect = true;
             do
-            { 
+            {
                 predefined = UI.AskForInt("Number of prepopulated to automatically define");
                 if (predefined > prepopulated)
                 {
@@ -107,6 +114,46 @@ namespace GarageInventory
         }
 
         private void SaveGarage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GarageManager()
+        {
+            int choice = UI.Menu(1, GarageManagerMenuList);
+            switch (choice)
+            {
+                case 1:
+                    AddVehicle();
+                    break;
+                case 2:
+                    RemoveVehicle();
+                    break;
+                case 3:
+                    ListAllParked();
+                    break;
+                case 4:
+                    ListTypesAndAmounts();
+                    break;
+            }
+        }
+
+        private void AddVehicle()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RemoveVehicle()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ListAllParked()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ListTypesAndAmounts()
         {
             throw new NotImplementedException();
         }

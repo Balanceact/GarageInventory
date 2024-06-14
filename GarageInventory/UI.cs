@@ -91,7 +91,7 @@ namespace GarageInventory
         public void PrintMenu(int choice, List<string> menu)
         {
             ResetPosition();
-            WriteLine("Please choose an option or press 'Esc': ");      //ToDo: Implement going back with Esc.
+            WriteLine("Please choose an option using the up and down arrow keys and enter, or press 'Esc' to exit: ");      //ToDo: Implement going back with Esc.
             for (int i = 1; i < menu.Count + 1; i++)
             {
                 if (i == choice)
