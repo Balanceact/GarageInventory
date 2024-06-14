@@ -1,13 +1,4 @@
-﻿using Microsoft.VisualBasic.FileIO;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GarageInventory
+﻿namespace GarageInventory
 {
     internal class Handler : IHandler
     {

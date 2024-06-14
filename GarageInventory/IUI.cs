@@ -1,5 +1,4 @@
-﻿
-namespace GarageInventory
+﻿namespace GarageInventory
 {
     public interface IUI
     {
