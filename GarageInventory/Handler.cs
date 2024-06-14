@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -14,10 +15,12 @@ namespace GarageInventory
         private IGarage<Vehicle> _listOfVehicles;
         private List<string> _listOfVehicleTypes;
         private List<string> _isForRent;
+        private List<string> _isElectric;
 
         public IUI UI { get { return _ui; } }
         public List<string> ListOfVehicleTypes { get { return _listOfVehicleTypes; } }
         public List<string> IsForRent { get { return _isForRent; } }
+        public List<string> IsElectric { get { return _isElectric; } }
 
         public Handler(int capacity, IUI UI)
         {
@@ -31,6 +34,8 @@ namespace GarageInventory
                                                        "   Truck    "};
             _isForRent = new List<string>() {"   Is for rent   ",
                                              " Is not for rent " };
+            _isElectric = new List<string>() {"   Is electric   ",
+                                              " Is not electric " };
         }
 
         public void AddVehicle(Vehicle vehicle)
@@ -110,27 +115,77 @@ namespace GarageInventory
         }
         private Vehicle AskForBoat()
         {
-            throw new NotImplementedException();
+            string licensePlateNumber = UI.AskForString("License plate number");
+            string make = UI.AskForString("Make");
+            string model = UI.AskForString("Model");
+            int year = UI.AskForInt("Year");
+            int numberOfWheels = UI.AskForInt("Number of wheels");
+            string color = UI.AskForString("Color");
+            string description = UI.AskForString("Name or description");
+            bool forRent = UI.AskForBool(IsForRent);
+            int length = UI.AskForInt("Length");
+            Boat boat = new Boat(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent, length);
+            return boat;
         }
 
         private Vehicle AskForBus()
         {
-            throw new NotImplementedException();
+            string licensePlateNumber = UI.AskForString("License plate number");
+            string make = UI.AskForString("Make");
+            string model = UI.AskForString("Model");
+            int year = UI.AskForInt("Year");
+            int numberOfWheels = UI.AskForInt("Number of wheels");
+            string color = UI.AskForString("Color");
+            string description = UI.AskForString("Name or description");
+            bool forRent = UI.AskForBool(IsForRent);
+            int numberOfSeats = UI.AskForInt("Number of seats");
+            Bus bus = new Bus(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent, numberOfSeats);
+            return bus;
         }
 
         private Vehicle AskForCar()
         {
-            throw new NotImplementedException();
+            string licensePlateNumber = UI.AskForString("License plate number");
+            string make = UI.AskForString("Make");
+            string model = UI.AskForString("Model");
+            int year = UI.AskForInt("Year");
+            int numberOfWheels = UI.AskForInt("Number of wheels");
+            string color = UI.AskForString("Color");
+            string description = UI.AskForString("Name or description");
+            bool forRent = UI.AskForBool(IsForRent);
+            string fuelType = UI.AskForString("Fuel Type");
+            Car car = new Car(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent, fuelType);
+            return car;
         }
 
         private Vehicle AskForMotorcycle()
         {
-            throw new NotImplementedException();
+            string licensePlateNumber = UI.AskForString("License plate number");
+            string make = UI.AskForString("Make");
+            string model = UI.AskForString("Model");
+            int year = UI.AskForInt("Year");
+            int numberOfWheels = UI.AskForInt("Number of wheels");
+            string color = UI.AskForString("Color");
+            string description = UI.AskForString("Name or description");
+            bool forRent = UI.AskForBool(IsForRent);
+            int cylinderVolumeInCC = UI.AskForInt("Cylinder volume in cc");
+            Motorcycle motorcycle = new Motorcycle(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent, cylinderVolumeInCC);
+            return motorcycle;
         }
 
         private Vehicle AskForTruck()
         {
-            throw new NotImplementedException();
+            string licensePlateNumber = UI.AskForString("License plate number");
+            string make = UI.AskForString("Make");
+            string model = UI.AskForString("Model");
+            int year = UI.AskForInt("Year");
+            int numberOfWheels = UI.AskForInt("Number of wheels");
+            string color = UI.AskForString("Color");
+            string description = UI.AskForString("Name or description");
+            bool forRent = UI.AskForBool(IsForRent);
+            bool isElectric = UI.AskForBool(IsElectric);
+            Truck truck = new Truck(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent, isElectric);
+            return truck;
         }
     }
 }
