@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,10 +12,12 @@ namespace GarageInventory
     {
         private IUI _ui;
         private IGarage<Vehicle> _listOfVehicles;
-        public List<string> _listOfVehicleTypes;
+        private List<string> _listOfVehicleTypes;
+        private List<string> _isForRent;
 
         public IUI UI { get { return _ui; } }
         public List<string> ListOfVehicleTypes { get { return _listOfVehicleTypes; } }
+        public List<string> IsForRent { get { return _isForRent; } }
 
         public Handler(int capacity, IUI UI)
         {
@@ -25,6 +29,8 @@ namespace GarageInventory
                                                        "    Car     ",
                                                        " Motorcycle ",
                                                        "   Truck    "};
+            _isForRent = new List<string>() {"   Is for rent   ",
+                                             " Is not for rent " };
         }
 
         public void AddVehicle(Vehicle vehicle)
@@ -87,12 +93,21 @@ namespace GarageInventory
             }
 
         }
-
         private Vehicle AskForAirplane()
         {
-            throw new NotImplementedException();
+            string licensePlateNumber = UI.AskForString("License plate number");
+            string make = UI.AskForString("Make");
+            string model = UI.AskForString("Model");
+            int year = UI.AskForInt("Year");
+            int numberOfWheels = UI.AskForInt("Number of wheels");
+            string color = UI.AskForString("Color");
+            string description = UI.AskForString("Name or description");
+            bool forRent = UI.AskForBool(IsForRent);
+            int wingspan = UI.AskForInt("Wingspan");
+            int numberOfEngines = UI.AskForInt("Number of engines");
+            Airplane airplane = new Airplane(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent, wingspan, numberOfEngines);
+            return airplane;
         }
-
         private Vehicle AskForBoat()
         {
             throw new NotImplementedException();

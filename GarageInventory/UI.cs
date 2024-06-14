@@ -26,6 +26,17 @@ namespace GarageInventory
             return input;
         }
 
+        public bool AskForBool(List<string> menu)
+        {
+            bool input = false;
+            int choice = Menu(2, menu);
+            if (choice == 1)
+                input = true;
+            else if (choice == 2)
+                input = false;
+            return input;
+        }
+
         public string AskForString(string prompt)
         {
             bool fail = true;

@@ -3,6 +3,7 @@ namespace GarageInventory
 {
     public interface IUI
     {
+        bool AskForBool(List<string> menu);
         int AskForInt(string prompt);
         string AskForString(string prompt);
         void Clear();
