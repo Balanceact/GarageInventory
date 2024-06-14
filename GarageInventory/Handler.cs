@@ -127,13 +127,13 @@ namespace GarageInventory
         {
             if (_listOfVehicles.Count == _listOfVehicles.Count)
             {
-                //ToDo: Message handler: Garage is full!
+                UI.WriteLine("Garage is full!");
             }
             else
             {
                 _listOfVehicles[_listOfVehicles.ParkingSpacesFilled] = vehicle;
                 _listOfVehicles.ParkingSpacesFilled++;
-                //ToDo: Message handler: Vehicle added to Garage!
+                UI.WriteLine("Vehicle added to Garage!");
             }
         }
 
@@ -144,7 +144,7 @@ namespace GarageInventory
                 if (v == vehicle)
                 {
                     _listOfVehicles.Remove(vehicle);
-                    //ToDo: Message handler: Vehicle removed from Garage!
+                    UI.WriteLine("Vehicle removed from Garage!");
                 }
             }
         }
@@ -187,6 +187,7 @@ namespace GarageInventory
             }
 
         }
+
         private Vehicle AskForAirplane()
         {
             string licensePlateNumber = UI.AskForString("License plate number");
@@ -202,6 +203,7 @@ namespace GarageInventory
             Airplane airplane = new Airplane(licensePlateNumber, make, model, year, numberOfWheels, color, description, forRent, wingspan, numberOfEngines);
             return airplane;
         }
+
         private Vehicle AskForBoat()
         {
             string licensePlateNumber = UI.AskForString("License plate number");

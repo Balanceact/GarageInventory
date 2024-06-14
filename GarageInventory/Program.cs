@@ -22,8 +22,7 @@ namespace GarageInventory
             host.Services.GetRequiredService<Manager>().Run();
         }
     }
-}
-/*  Requirements Specification
+}/* Requirements Specification
         The registration number is unique.
     Functionality
         It should be possible to:
@@ -37,5 +36,4 @@ namespace GarageInventory
                 All trucks
                 All red vehicles
             It should be possible to shut down the application from the interface
-        The application should robustly handle input errors, so it does not crash with incorrect input or usage.
- */
+        The application should robustly handle input errors, so it does not crash with incorrect input or usage. */

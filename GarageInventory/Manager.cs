@@ -99,7 +99,6 @@ namespace GarageInventory
                 }
             } while (incorrect);
             handler.Populate(prepopulated, predefined);
-            //ToDo: Fully implement NewGarage().
         }
 
         private void LoadGarage()
