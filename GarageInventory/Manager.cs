@@ -21,28 +21,12 @@ namespace GarageInventory
             _mainMenuList = new List<String>() { "   New Garage  ",
                                                  "  Load Garage  ",
                                                  "  Save Garage  ",
-                                                 "    Options    ",
                                                  "      Quit     " };
         }
         public void Run()
         {
             Initialize();
-            int choice = MainMenu();
-            switch (choice)
-            {
-                case 1:
-                    NewGarage();
-                    break;
-                case 2:
-                    LoadGarage();
-                    break;
-                case 3:
-                    SaveGarage();
-                    break;
-                case 4:
-                    OptionsMenu();
-                    break;
-            }
+            MainMenu();
         }
 
         private void Initialize()
@@ -51,7 +35,7 @@ namespace GarageInventory
             Console.CursorVisible = false;
         }
 
-        public int MainMenu()
+        public void MainMenu()
         {
             int choice = 1;
             bool notChosen = true;
@@ -72,12 +56,25 @@ namespace GarageInventory
                         break;
                 }
                 if (choice == 0)
-                    choice = 5;
-                if (choice == 6)
+                    choice = 4;
+                if (choice == 5)
                     choice = 1;
             } while (notChosen);
-
-            return choice;
+            switch (choice)
+            {
+                case 1:
+                    NewGarage();
+                    break;
+                case 2:
+                    LoadGarage();
+                    break;
+                case 3:
+                    SaveGarage();
+                    break;
+                case 4:
+                    //ToDo: Implement Quit for when deeper in the program.
+                    break;
+            }
         }
 
         public void PrintMenu(int choice)

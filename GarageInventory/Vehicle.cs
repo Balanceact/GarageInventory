@@ -37,7 +37,6 @@ namespace GarageInventory
             _description = description;
             _forRent = forRent;
         }
-
     }
     internal class Airplane : Vehicle
     {
