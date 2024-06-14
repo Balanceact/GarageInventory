@@ -8,16 +8,17 @@ using System.Threading.Tasks;
 
 namespace GarageInventory
 {
-    internal class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
+    internal class Garage<T> : IEnumerable<T> where T : Vehicle
     {
         private T[] _array;
         private int _capacity;
         private int _parkingSpacesFilled;
 
-        public int ParkingSpacesFilled { get { return _parkingSpacesFilled; } }
+        public T this[int index] { get { return _array[index]; } set { _array[index] = value; } }
         public int Capacity { get { return _capacity; } set { _capacity = value; } }
+        public int Count => _array.Length;
+        public int ParkingSpacesFilled { get { return _parkingSpacesFilled; } }
 
-        public T this[int index] => _array[index];
 
         public Garage(int capacity)
         {
@@ -25,7 +26,6 @@ namespace GarageInventory
             _capacity = capacity;
             _parkingSpacesFilled = 0;
         }
-
         public IEnumerator<T> GetEnumerator()
         {
             foreach (var item in _array)
@@ -33,7 +33,10 @@ namespace GarageInventory
                 yield return item;
             }
         }
-
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        public void AddVehicle(Vehicle vehicle)
+        {
+
+        }
     }
 }

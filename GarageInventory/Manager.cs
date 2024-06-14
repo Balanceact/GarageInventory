@@ -82,18 +82,15 @@ namespace GarageInventory
 
         public void PrintMenu(int choice)
         {
-            //Console.Clear();
-            Console.SetCursorPosition(0, 0);
+            UI.ResetPosition();
             UI.WriteLine("Please choose an option or press 'Esc': ");
             for (int i = 1; i < MainMenuList.Count+1; i++)
             {
                 if (i == choice)
                 {
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    //Console.ForegroundColor = ConsoleColor.Black;
+                    UI.MenuHighlight();
                     UI.WriteLine(MainMenuList[i - 1]);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    //Console.ForegroundColor = ConsoleColor.White;
+                    UI.MenuNotSelected();
                 }
                 else
                 {

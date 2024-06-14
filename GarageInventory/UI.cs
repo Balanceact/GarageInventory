@@ -46,6 +46,19 @@ namespace GarageInventory
                     return result;
             } while (true);
         }
-
+        public void ResetPosition()
+        {
+            Console.SetCursorPosition(0, 0);
+        }
+        public void MenuHighlight()
+        {
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+        public void MenuNotSelected()
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
     }
 }

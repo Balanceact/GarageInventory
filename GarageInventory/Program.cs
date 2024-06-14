@@ -13,7 +13,6 @@ namespace GarageInventory
                .ConfigureServices(services =>
                {
                    services.AddSingleton<IUI, UI>();
-                   //ToDo: Move to Handler.
                    //services.AddSingleton<IGarage<Vehicle>>(new Garage<Vehicle>(0));
                    services.AddSingleton<Manager>();
                })
