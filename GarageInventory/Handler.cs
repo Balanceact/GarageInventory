@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace GarageInventory
 {
-    internal class Handler
+    internal class Handler : IHandler
     {
         private IGarage<Vehicle> _listOfVehicles;
+        private List<string> _listOfVehicleTypes = new List<string> { "  Airplane  ",
+                                                                      "    Boat    ",
+                                                                      "    Bus     ",
+                                                                      "    Car     ",
+                                                                      " Motorcycle ",
+                                                                      "   Truck    "};
 
+        public List<string> ListOfVehicles { get { return _listOfVehicleTypes; } }
         public Handler(int capacity)
         {
             _listOfVehicles = new Garage<Vehicle>(capacity);
@@ -37,6 +44,11 @@ namespace GarageInventory
                     //ToDo: Message handler: Vehicle removed from Garage!
                 }
             }
+        }
+        public void Populate(int numberOfVehicles)
+        {
+            int choice = 1;
+            choice = UI.Menu(choice, .ListOfVehicles);
         }
     }
 }

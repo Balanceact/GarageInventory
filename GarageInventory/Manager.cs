@@ -10,15 +10,15 @@ namespace GarageInventory
     internal class Manager
     {
         private IUI _ui;
-        private List<String> _mainMenuList;
+        private List<string> _mainMenuList;
 
         public IUI UI { get { return _ui; } }
-        public List<String> MainMenuList { get { return _mainMenuList; } }
+        public List<string> MainMenuList { get { return _mainMenuList; } }
 
         public Manager(IUI ui)
         {
             _ui = ui;
-            _mainMenuList = new List<String>() { "   New Garage  ",
+            _mainMenuList = new List<string>() { "   New Garage  ",
                                                  "  Load Garage  ",
                                                  "  Save Garage  ",
                                                  "      Quit     " };
@@ -28,38 +28,14 @@ namespace GarageInventory
             Initialize();
             MainMenu();
         }
-
         private void Initialize()
         {
-            //ToDo: Remove dependency on Console.
-            Console.CursorVisible = false;
+            UI.Initialize();
         }
-
         public void MainMenu()
         {
             int choice = 1;
-            bool notChosen = true;
-            do
-            {
-                PrintMenu(choice);
-                ConsoleKey keyPress = UI.ReadKey();
-                switch (keyPress)
-                {
-                    case ConsoleKey.UpArrow:
-                        choice--;
-                        break;
-                    case ConsoleKey.DownArrow:
-                        choice++;
-                        break;
-                    case ConsoleKey.Enter:
-                        notChosen = false;
-                        break;
-                }
-                if (choice == 0)
-                    choice = 4;
-                if (choice == 5)
-                    choice = 1;
-            } while (notChosen);
+            choice = UI.Menu(choice, _mainMenuList);
             switch (choice)
             {
                 case 1:
@@ -76,43 +52,37 @@ namespace GarageInventory
                     break;
             }
         }
-
-        public void PrintMenu(int choice)
+        private void NewGarage()
         {
-            UI.ResetPosition();
-            UI.WriteLine("Please choose an option or press 'Esc': ");
-            for (int i = 1; i < MainMenuList.Count+1; i++)
+            UI.Clear();
+            int capacity = UI.AskForInt("Number of parking spaces");
+            IHandler handler = new Handler(capacity);
+            int prepopulated;
+            bool incorrect = true;
+            do
             {
-                if (i == choice)
+                prepopulated = UI.AskForInt("Number of parking spaces to be prepopulated");
+                if (prepopulated > capacity)
                 {
-                    UI.MenuHighlight();
-                    UI.WriteLine(MainMenuList[i - 1]);
-                    UI.MenuNotSelected();
+                    UI.WriteLine("Invalid number. Cant be higher than number of parking spaces.");
+                }
+                else if (prepopulated < 0)
+                {
+                    UI.WriteLine("Invalid number. Can't be negative.");
                 }
                 else
                 {
-                    UI.WriteLine(MainMenuList[i - 1]);
+                    incorrect = false;
                 }
-
-            }
+            } while (incorrect);
+            handler.Populate(prepopulated);
+            //ToDo: Fully implement NewGarage().
         }
-
-        private void NewGarage()
-        {
-            throw new NotImplementedException();
-        }
-
         private void LoadGarage()
         {
             throw new NotImplementedException();
         }
-
         private void SaveGarage()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OptionsMenu()
         {
             throw new NotImplementedException();
         }
