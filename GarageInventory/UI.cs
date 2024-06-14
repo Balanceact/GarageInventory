@@ -11,6 +11,7 @@ namespace GarageInventory
         public void Write(string message) { Console.Write(message); }
         public void WriteLine(string message) { Console.WriteLine(message); }
         public ConsoleKey ReadKey() => Console.ReadKey(intercept: true).Key;
+
         public string ReadLine()
         {
             string input;
@@ -24,6 +25,7 @@ namespace GarageInventory
             } while (string.IsNullOrWhiteSpace(input));
             return input;
         }
+
         public string AskForString(string prompt)
         {
             bool fail = true;
@@ -38,6 +40,7 @@ namespace GarageInventory
             } while (fail);
             return input;
         }
+
         public int AskForInt(string prompt)
         {
             do {
@@ -46,32 +49,38 @@ namespace GarageInventory
                     return result;
             } while (true);
         }
+
         public void Clear()
         {
             Console.Clear();
         }
+
         public void Initialize()
         {
             Console.CursorVisible = false;
         }
+
         public void ResetPosition()
         {
             Console.SetCursorPosition(0, 0);
         }
+
         public void MenuHighlight()
         {
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
         }
+
         public void MenuNotSelected()
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+
         public void PrintMenu(int choice, List<string> menu)
         {
             ResetPosition();
-            WriteLine("Please choose an option or press 'Esc': ");
+            WriteLine("Please choose an option or press 'Esc': ");      //ToDo: Implement going back with Esc.
             for (int i = 1; i < menu.Count + 1; i++)
             {
                 if (i == choice)
@@ -86,9 +95,11 @@ namespace GarageInventory
                 }
             }
         }
+
         public int Menu(int choice, List<string> menu)
         {
             bool notChosen = true;
+            Clear();
             do
             {
                 PrintMenu(choice, menu);

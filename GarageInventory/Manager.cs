@@ -23,15 +23,18 @@ namespace GarageInventory
                                                  "  Save Garage  ",
                                                  "      Quit     " };
         }
+
         public void Run()
         {
             Initialize();
             MainMenu();
         }
+
         private void Initialize()
         {
             UI.Initialize();
         }
+
         public void MainMenu()
         {
             int choice = 1;
@@ -52,16 +55,19 @@ namespace GarageInventory
                     break;
             }
         }
+
         private void NewGarage()
         {
             UI.Clear();
             int capacity = UI.AskForInt("Number of parking spaces");
-            IHandler handler = new Handler(capacity);
+            IHandler handler = new Handler(capacity, UI);
             int prepopulated;
+            int predefined;
             bool incorrect = true;
             do
             {
                 prepopulated = UI.AskForInt("Number of parking spaces to be prepopulated");
+
                 if (prepopulated > capacity)
                 {
                     UI.WriteLine("Invalid number. Cant be higher than number of parking spaces.");
@@ -75,17 +81,35 @@ namespace GarageInventory
                     incorrect = false;
                 }
             } while (incorrect);
-            handler.Populate(prepopulated);
+            incorrect = true;
+            do
+            { 
+                predefined = UI.AskForInt("Number of prepopulated to automatically define");
+                if (predefined > prepopulated)
+                {
+                    UI.WriteLine("Invalid number. Cant be higher than number to prepopulate.");
+                }
+                else if (prepopulated < 0)
+                {
+                    UI.WriteLine("Invalid number. Can't be negative.");
+                }
+                else
+                {
+                    incorrect = false;
+                }
+            } while (incorrect);
+            handler.Populate(prepopulated, predefined);
             //ToDo: Fully implement NewGarage().
         }
+
         private void LoadGarage()
         {
             throw new NotImplementedException();
         }
+
         private void SaveGarage()
         {
             throw new NotImplementedException();
         }
-
     }
 }

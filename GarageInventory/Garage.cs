@@ -22,6 +22,7 @@ namespace GarageInventory
             _array = new T[capacity];
             _parkingSpacesFilled = 0;
         }
+
         public IEnumerator<T> GetEnumerator()
         {
             foreach (var item in _array)
@@ -29,7 +30,9 @@ namespace GarageInventory
                 yield return item;
             }
         }
+
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
         public void Remove(Vehicle vehicle)
         {
             T[] array2 = new T[_array.Length];
@@ -46,5 +49,6 @@ namespace GarageInventory
             }
             _array = array2;
         }
+
     }
 }

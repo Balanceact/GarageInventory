@@ -38,6 +38,7 @@ namespace GarageInventory
             _forRent = forRent;
         }
     }
+
     internal class Airplane : Vehicle
     {
         private int _wingspan;
@@ -53,6 +54,7 @@ namespace GarageInventory
         }
 
     }
+
     internal class Boat : Vehicle
     {
         private int _length;
@@ -66,6 +68,7 @@ namespace GarageInventory
         }
 
     }
+
     internal class Bus : Vehicle
     {
         private int _numberOfSeats;
@@ -79,6 +82,7 @@ namespace GarageInventory
         }
 
     }
+
     internal class Car : Vehicle
     {
         private string _fuelType;
@@ -92,6 +96,7 @@ namespace GarageInventory
         }
 
     }
+
     internal class Motorcycle : Vehicle
     {
         private int _cylinderVolumeInCC;
@@ -105,6 +110,7 @@ namespace GarageInventory
         }
 
     }
+
     internal class Truck : Vehicle
     {
         private bool _isElectric;
