@@ -12,6 +12,7 @@
         void MenuHighlight();
         void MenuNotSelected();
         void PrintMenu(int choice, List<string> menu);
+        void PrintPageCount(int currentPage, int pages);
         void Quit();
         ConsoleKey ReadKey();
         string ReadLine();

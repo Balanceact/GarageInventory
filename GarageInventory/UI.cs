@@ -14,7 +14,7 @@
                 input = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(input))
                 {
-                    Console.WriteLine("Input a valid option.");
+                    Console.WriteLine("Input a valid option.");                             //ToDo: Message log.
                 }
             } while (string.IsNullOrWhiteSpace(input));
             return input;
@@ -39,7 +39,7 @@
                 Console.WriteLine($"{prompt}: ");
                 input = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(input))
-                    Console.WriteLine($"You have to supply a valid {prompt.ToLower()}");
+                    Console.WriteLine($"You have to supply a valid {prompt.ToLower()}");    //ToDo: Message log.
                 else
                     fail = false;
             } while (fail);
@@ -85,6 +85,14 @@
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        public void PrintPageCount(int currentPage, int pages)
+        {
+            int max = Hight();
+            Console.SetCursorPosition(0, max - 1);
+            Console.Write($"Page {currentPage} of {pages}.");                                   //ToDo: Message log.
+            Console.SetCursorPosition(0, 0);
         }
 
         public void PrintMenu(int choice, List<string> menu)

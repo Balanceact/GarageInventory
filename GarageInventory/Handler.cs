@@ -118,13 +118,13 @@
         {
             if (_listOfVehicles.ParkingSpacesFilled == _listOfVehicles.Count)
             {
-                UI.WriteLine("Garage is full!");
+                UI.WriteLine("Garage is full!");                                //ToDo: Message log.
             }
             else
             {
                 _listOfVehicles[_listOfVehicles.ParkingSpacesFilled] = vehicle;
                 _listOfVehicles.ParkingSpacesFilled++;
-                UI.WriteLine("Vehicle added to Garage!");
+                UI.WriteLine("Vehicle added to Garage!");                       //ToDo: Message log.
             }
         }
 
@@ -155,7 +155,7 @@
                         break;
                 }
             }
-            UI.Clear();
+            UI.Clear();                                                                     //ToDo: Message log.
             UI.WriteLine($"Airplane:   {airplane}");
             UI.WriteLine($"Boat:       {boat}");
             UI.WriteLine($"Bus:        {bus}");
@@ -168,7 +168,15 @@
         public void ListAllParked()
         {
             // ToDo: Implement proper menu of vehicles.
-            UI.Hight();
+            int max = UI.Hight() - 2;
+            int pages = ( _listOfVehicles.ParkingSpacesFilled / max ) + 1;
+            int currentPage = 1;
+            bool noChoice = true;
+            do
+            {
+                UI.PrintPageCount(currentPage, pages);
+                Console.ReadLine();
+            } while (noChoice);
         }
 
         public Vehicle SelectVehicle()
@@ -185,7 +193,7 @@
                 if (v == vehicle)
                 {
                     _listOfVehicles.Remove(vehicle);
-                    UI.WriteLine("Vehicle removed from Garage!");
+                    UI.WriteLine("Vehicle removed from Garage!");               //ToDo: Message log.
                 }
             }
         }
@@ -199,7 +207,7 @@
                 myRandom = random.Next(79 - i);
                 AddVehicleToList(ListOfPredefinedVehicles[myRandom]);
                 ListOfPredefinedVehicles.RemoveAt(myRandom);
-                UI.WriteLine("Predefined vehicle has been added to the garage!");
+                //UI.WriteLine("Predefined vehicle has been added to the garage!");                   //ToDo: Message log.
             }
             UI.ReadKey();
             AddVehicle(numberOfVehicles - numberOfPredefined);
@@ -232,9 +240,8 @@
                         AddVehicleToList(AskForTruck());
                         break;
                 }
-                UI.WriteLine("User defined vehicle has been added to the garage!");
+                UI.WriteLine("User defined vehicle has been added to the garage!");         //ToDo: Message log.
             }
-            UI.ReadKey();
         }
 
         private Vehicle AskForAirplane()
