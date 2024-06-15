@@ -168,6 +168,7 @@
         public void ListAllParked()
         {
             // ToDo: Implement proper menu of vehicles.
+            UI.Hight();
         }
 
         public Vehicle SelectVehicle()

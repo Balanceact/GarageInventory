@@ -70,6 +70,11 @@
             Console.SetCursorPosition(0, 0);
         }
 
+        public int Hight()
+        {
+            return Console.WindowHeight;
+        }
+
         public void MenuHighlight()
         {
             Console.BackgroundColor = ConsoleColor.Blue;

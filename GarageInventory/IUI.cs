@@ -6,6 +6,7 @@
         int AskForInt(string prompt);
         string AskForString(string prompt);
         void Clear();
+        int Hight();
         void Initialize();
         int Menu(int choice, List<string> menu);
         void MenuHighlight();

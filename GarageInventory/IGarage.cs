@@ -1,5 +1,4 @@
-﻿
-namespace GarageInventory
+﻿namespace GarageInventory
 {
     internal interface IGarage<T> where T : Vehicle
     {

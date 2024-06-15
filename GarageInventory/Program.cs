@@ -12,7 +12,6 @@ namespace GarageInventory
                .ConfigureServices(services =>
                {
                    services.AddSingleton<IUI, UI>();
-                   //services.AddSingleton<IGarage<Vehicle>>(new Garage<Vehicle>(0));
                    services.AddSingleton<Manager>();
                    services.AddSingleton<IHandler, Handler>();
                })
