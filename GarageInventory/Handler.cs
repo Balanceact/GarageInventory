@@ -114,6 +114,10 @@
             };
         }
 
+        /// <summary>
+        /// Checks if the garage is full, if not then adds the vehicle to the garage.
+        /// </summary>
+        /// <param name="vehicle"></param>
         public void AddVehicleToList(Vehicle vehicle)
         {
             if (_listOfVehicles.ParkingSpacesFilled == _listOfVehicles.Count)
@@ -128,6 +132,9 @@
             }
         }
 
+        /// <summary>
+        /// Lists how many of each type of vehicle is currently parked in the garage.
+        /// </summary>
         public void ListTypesAndAmounts()
         {
             int airplane = 0, boat = 0, bus = 0, car = 0, motorcycle = 0, truck = 0;
@@ -165,10 +172,12 @@
             UI.ReadKey();
         }
 
+        /// <summary>
+        /// Lists all the vehicles currently parked in the garage.
+        /// </summary>
         public void ListAllParked()
         {
-            // ToDo: Implement proper menu of vehicles.
-            int max = UI.Hight() - 2;
+            int max = UI.Hight() - 2;                                                       // ToDo: Implement proper menu of vehicles.
             int pages = ( _listOfVehicles.ParkingSpacesFilled / max ) + 1;
             int currentPage = 1;
             bool noChoice = true;
@@ -179,6 +188,10 @@
             } while (noChoice);
         }
 
+        /// <summary>
+        /// Prints a menu and lets you select a vehicle on it.
+        /// </summary>
+        /// <returns></returns>
         public Vehicle SelectVehicle()
         {
             int selection = 0;
@@ -186,6 +199,10 @@
             return _listOfVehicles[selection];
         }
 
+        /// <summary>
+        /// Removes the selected vehicle
+        /// </summary>
+        /// <param name="vehicle"></param>
         public void RemoveVehicle(Vehicle vehicle)
         {
             foreach (var v in _listOfVehicles)
@@ -198,6 +215,11 @@
             }
         }
 
+        /// <summary>
+        /// Populates a garage with either user defined or predefined vehicles.
+        /// </summary>
+        /// <param name="numberOfVehicles"></param>
+        /// <param name="numberOfPredefined"></param>
         public void Populate(int numberOfVehicles, int numberOfPredefined)
         {
             int myRandom;
@@ -213,6 +235,10 @@
             AddVehicle(numberOfVehicles - numberOfPredefined);
         }
 
+        /// <summary>
+        /// Adds a user defined vehicle to the garage.
+        /// </summary>
+        /// <param name="numberOfVehicles"></param>
         public void AddVehicle(int numberOfVehicles)
         {
             int choice = 1;
@@ -244,6 +270,10 @@
             }
         }
 
+        /// <summary>
+        /// Asks the user for an airplanes properties.
+        /// </summary>
+        /// <returns></returns>
         private Vehicle AskForAirplane()
         {
             string licensePlateNumber = UI.AskForString("License plate number");
@@ -260,6 +290,10 @@
             return airplane;
         }
 
+        /// <summary>
+        /// Asks the user for a boats properties.
+        /// </summary>
+        /// <returns></returns>
         private Vehicle AskForBoat()
         {
             string licensePlateNumber = UI.AskForString("License plate number");
@@ -275,6 +309,10 @@
             return boat;
         }
 
+        /// <summary>
+        /// Asks the user for a bus's properties.
+        /// </summary>
+        /// <returns></returns>
         private Vehicle AskForBus()
         {
             string licensePlateNumber = UI.AskForString("License plate number");
@@ -290,6 +328,10 @@
             return bus;
         }
 
+        /// <summary>
+        /// Asks the user for a cars properties.
+        /// </summary>
+        /// <returns></returns>
         private Vehicle AskForCar()
         {
             string licensePlateNumber = UI.AskForString("License plate number");
@@ -305,6 +347,10 @@
             return car;
         }
 
+        /// <summary>
+        /// Asks the user for a motorcycles properties.
+        /// </summary>
+        /// <returns></returns>
         private Vehicle AskForMotorcycle()
         {
             string licensePlateNumber = UI.AskForString("License plate number");
@@ -320,6 +366,10 @@
             return motorcycle;
         }
 
+        /// <summary>
+        /// Asks the user for a trucks properties.
+        /// </summary>
+        /// <returns></returns>
         private Vehicle AskForTruck()
         {
             string licensePlateNumber = UI.AskForString("License plate number");

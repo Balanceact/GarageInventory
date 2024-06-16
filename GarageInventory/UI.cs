@@ -20,6 +20,11 @@
             return input;
         }
 
+        /// <summary>
+        /// Asks the User for a bool with the possible choices in a List<string>.
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <returns></returns>
         public bool AskForBool(List<string> menu)
         {
             bool input = false;
@@ -31,6 +36,11 @@
             return input;
         }
 
+        /// <summary>
+        /// Asks the User for a string as input.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         public string AskForString(string prompt)
         {
             bool fail = true;
@@ -46,6 +56,11 @@
             return input;
         }
 
+        /// <summary>
+        /// Asks the User for a Int as Input.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         public int AskForInt(string prompt)
         {
             do {
@@ -55,38 +70,62 @@
             } while (true);
         }
 
+        /// <summary>
+        /// Clears the console.
+        /// </summary>
         public void Clear()
         {
             Console.Clear();
         }
 
+        /// <summary>
+        /// Applies desired settings based on the UI class functionality.
+        /// </summary>
         public void Initialize()
         {
             Console.CursorVisible = false;
         }
 
+        /// <summary>
+        /// Returns the position of the cursor to the top left corner.
+        /// </summary>
         public void ResetPosition()
         {
             Console.SetCursorPosition(0, 0);
         }
 
+        /// <summary>
+        /// Gets the current number of rows in the console window.
+        /// </summary>
+        /// <returns></returns>
         public int Hight()
         {
             return Console.WindowHeight;
         }
 
+        /// <summary>
+        /// Changes the console window color settings for providing a highlight to the currently marked option.
+        /// </summary>
         public void MenuHighlight()
         {
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        /// <summary>
+        /// Returns the console window color settings to default (grey text on black background).
+        /// </summary>
         public void MenuNotSelected()
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
+        /// <summary>
+        /// Prints the current page number in a multi page view in the bottom left corner then returns the cursor to the top left corner.
+        /// </summary>
+        /// <param name="currentPage"></param>
+        /// <param name="pages"></param>
         public void PrintPageCount(int currentPage, int pages)
         {
             int max = Hight();
@@ -95,6 +134,11 @@
             Console.SetCursorPosition(0, 0);
         }
 
+        /// <summary>
+        /// Prints a menu based on which choice should be the currently marked one and based on the List<string> taken as input.
+        /// </summary>
+        /// <param name="choice"></param>
+        /// <param name="menu"></param>
         public void PrintMenu(int choice, List<string> menu)
         {
             ResetPosition();
@@ -114,6 +158,12 @@
             }
         }
 
+        /// <summary>
+        /// Moves the highlighted marker for the menu based on input and returns which option was chosen.
+        /// </summary>
+        /// <param name="choice"></param>
+        /// <param name="menu"></param>
+        /// <returns></returns>
         public int Menu(int choice, List<string> menu)
         {
             bool notChosen = true;
@@ -143,6 +193,9 @@
             return choice;
         }
 
+        /// <summary>
+        /// Exits the application gracefully.
+        /// </summary>
         public void Quit()
         {
             System.Environment.Exit(0);

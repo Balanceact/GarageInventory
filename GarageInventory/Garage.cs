@@ -17,6 +17,10 @@ namespace GarageInventory
             _parkingSpacesFilled = 0;
         }
 
+        /// <summary>
+        /// Implements IEnumerator<T> for IEnumerable<T> for the class (and by extension for the collection).
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<T> GetEnumerator()
         {
             foreach (var item in _array)
@@ -25,8 +29,16 @@ namespace GarageInventory
             }
         }
 
+        /// <summary>
+        /// Implements IEnumerator for IEnumerable for the class (and by extension for the collection).
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
+        /// <summary>
+        /// Removes a desired element from the array.
+        /// </summary>
+        /// <param name="vehicle"></param>
         public void Remove(Vehicle vehicle)
         {
             T[] array2 = new T[_array.Length];

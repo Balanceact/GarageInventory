@@ -22,18 +22,26 @@
                                                           "     List all parked      ",
                                                           "  List types and amounts  " };
         }
-
+        /// <summary>
+        /// Initializes the application then loads the main menu.
+        /// </summary>
         public void Run()
         {
             Initialize();
             MainMenu();
         }
 
+        /// <summary>
+        /// Initializes the application.
+        /// </summary>
         private void Initialize()
         {
             UI.Initialize();
         }
 
+        /// <summary>
+        /// Loads the main menu and then applies the users choice.
+        /// </summary>
         public void MainMenu()
         {
             int choice = 1;
@@ -55,6 +63,9 @@
             }
         }
 
+        /// <summary>
+        /// Starts a new garage.
+        /// </summary>
         private void NewGarage()
         {
             UI.Clear();
@@ -101,6 +112,7 @@
             GarageManager(handler);
         }
 
+        
         private void LoadGarage()
         {
             throw new NotImplementedException();
@@ -111,6 +123,10 @@
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Moves the application to the Handler class with the chosen functionality.
+        /// </summary>
+        /// <param name="handler"></param>
         public void GarageManager(IHandler handler)
         {
             int choice = UI.Menu(1, GarageManagerMenuList);
