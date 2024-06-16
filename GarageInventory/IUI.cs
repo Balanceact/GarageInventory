@@ -12,6 +12,7 @@
         void Clear();
         void Initialize();
         int Menu(int choice, List<string> menu);
+        int MenuPaged(int choice, List<string> menu);
         void MenuHighlight();
         void MenuNotSelected();
         void PrintMenu(int choice, List<string> menu);

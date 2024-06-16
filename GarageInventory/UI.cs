@@ -1,4 +1,6 @@
-﻿namespace GarageInventory
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GarageInventory
 {
     public class UI : IUI
     {
@@ -174,7 +176,7 @@
         }
 
         /// <summary>
-        /// Moves the highlighted marker for the menu based on input and returns which option was chosen. Can handle multiple pages of options.
+        /// Moves the highlighted marker for the menu based on input and returns which option was chosen.
         /// </summary>
         /// <param name="choice"></param>
         /// <param name="menu"></param>
@@ -207,6 +209,73 @@
             } while (notChosen);
 
             return choice;
+        }
+
+        /// <summary>
+        /// Moves the highlighted marker for the menu based on input and returns which option was chosen. Can handle multiple pages.
+        /// </summary>
+        /// <param name="choice"></param>
+        /// <param name="menu"></param>
+        /// <returns></returns>
+        public int MenuPaged(int choice, List<string> menu)
+        {
+            bool notChosen = true;
+            int max = Height - 1;
+            int currentPage = 1;
+            int pages = (menu.Count / max) + 1;
+            int lastPage = menu.Count % max;
+            Clear();
+            AddToMessageLog("Choose an option using the up & down arrow keys & enter:");
+            AddToMessageLog($"Page {currentPage} of {pages}.");
+            do
+            {
+                if (currentPage == pages)
+                    PrintMenu(choice, menu.GetRange((currentPage - 1) * max, lastPage));
+                else
+                    PrintMenu(choice, menu.GetRange((currentPage - 1) * max, max));
+                ConsoleKey keyPress = ReadKey();
+                switch (keyPress)
+                {
+                    case ConsoleKey.UpArrow:
+                        choice--;
+                        if (choice == 0)
+                        {
+                            if (currentPage == 1)
+                            {
+                                currentPage = pages;
+                                choice = lastPage;
+                            }
+                            else
+                            {
+                                choice = max;
+                                currentPage--;
+                            }
+                            AddToMessageLog($"Page {currentPage} of {pages}.");
+                        }
+                        break;
+                    case ConsoleKey.DownArrow:
+                        choice++;
+                        if (choice == max + 1)
+                        {
+                            if (currentPage == pages && choice == lastPage)
+                            {
+                                choice = 1;
+                                currentPage = 1;
+                            }
+                            else
+                            {
+                                choice = 1;
+                                currentPage++;
+                            }
+                            AddToMessageLog($"Page {currentPage} of {pages}.");
+                        }
+                        break;
+                    case ConsoleKey.Enter:
+                        notChosen = false;
+                        break;
+                }
+            } while (notChosen);
+            return ((currentPage - 1) * Height) + choice;
         }
 
         /// <summary>

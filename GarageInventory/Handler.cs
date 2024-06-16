@@ -169,15 +169,8 @@
         public void ListAllParked()
         {
             // ToDo: Implement proper menu of vehicles.
-            int maxPerPage = UI.Height;
-            int pages = ( _listOfVehicles.ParkingSpacesFilled / maxPerPage) + 1;
-            int currentPage = 1;
-            bool noChoice = true;
-            do
-            {
-                UI.AddToMessageLog($"Page {currentPage} of {pages}.");
-                UI.Menu(1, _listOfVehicles.AllParkedToString());
-            } while (noChoice);
+            UI.MenuPaged(1, _listOfVehicles.AllParkedToString());
+
         }
 
         /// <summary>
