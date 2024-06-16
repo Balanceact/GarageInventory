@@ -164,23 +164,13 @@
         }
 
         /// <summary>
-        /// Lists all the vehicles currently parked in the garage.
+        /// Lists all the vehicles currently parked in the garage and lets you select one of them.
         /// </summary>
-        public void ListAllParked()
+        public Vehicle ListAllParked()
         {
             // ToDo: Implement proper menu of vehicles.
-            UI.MenuPaged(1, _listOfVehicles.AllParkedToString());
-
-        }
-
-        /// <summary>
-        /// Prints a menu and lets you select a vehicle on it.
-        /// </summary>
-        /// <returns></returns>
-        public Vehicle SelectVehicle()
-        {
             int selection = 0;
-            // ToDo: Implement proper menu and selection of vehicle.
+            selection = UI.MenuPaged(1, _listOfVehicles.AllParkedToString());
             return _listOfVehicles[selection];
         }
 

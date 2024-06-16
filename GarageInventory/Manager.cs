@@ -140,7 +140,7 @@
                         handler.AddVehicle(1);
                         break;
                     case 2:
-                        handler.RemoveVehicle(handler.SelectVehicle());
+                        handler.RemoveVehicle(handler.ListAllParked());
                         break;
                     case 3:
                         handler.ListAllParked();

@@ -10,10 +10,9 @@
 
         void AddVehicle(int numberOfVehicles);
         void AddVehicleToList(Vehicle vehicle);
-        void ListAllParked();
+        Vehicle ListAllParked();
         void ListTypesAndAmounts();
         void Populate(int numberOfVehicles, int numberOfPredefined);
         void RemoveVehicle(Vehicle vehicle);
-        Vehicle SelectVehicle();
     }
 }
