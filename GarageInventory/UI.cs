@@ -2,10 +2,12 @@
 {
     public class UI : IUI
     {
+        public int Height => Console.WindowHeight;
+        public int Width => Console.WindowWidth;
+
         public void Write(string message) { Console.Write(message); }
         public void WriteLine(string message) { Console.WriteLine(message); }
         public ConsoleKey ReadKey() => Console.ReadKey(intercept: true).Key;
-        public int Height => Console.WindowHeight;
 
         public string ReadLine()
         {
@@ -15,7 +17,7 @@
                 input = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(input))
                 {
-                    Console.WriteLine("Input a valid option.");                             //ToDo: Message log.
+                    AddToMessageLog("Input a valid option.");
                 }
             } while (string.IsNullOrWhiteSpace(input));
             return input;
@@ -51,7 +53,7 @@
                 Console.WriteLine($"{prompt}: ");
                 input = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(input))
-                    Console.WriteLine($"You have to supply a valid {prompt.ToLower()}");    //ToDo: Message log.
+                    AddToMessageLog($"You have to supply a valid {prompt.ToLower()}");
                 else
                     fail = false;
             } while (fail);
@@ -88,6 +90,7 @@
         public void Initialize()
         {
             Console.CursorVisible = false;
+            PrintMessageLog();
         }
 
         /// <summary>
@@ -123,9 +126,8 @@
         /// <param name="pages"></param>
         public void PrintPageCount(int currentPage, int pages)
         {
-            int max = Height;
-            Console.SetCursorPosition(0, max - 1);
-            Console.Write($"Page {currentPage} of {pages}.");                                   //ToDo: Message log.
+            Console.SetCursorPosition(0, Height - 1);
+            Console.Write($"Page {currentPage} of {pages}.");
             Console.SetCursorPosition(0, 0);
         }
 
@@ -137,7 +139,7 @@
         public void PrintMenu(int choice, List<string> menu)
         {
             ResetPosition();
-            WriteLine("Please choose an option using the up and down arrow keys and enter, or press 'Esc' to exit: ");      //ToDo: Implement going back with Esc.
+            AddToMessageLog("Choose an option using the up & down arrow keys & enter:");
             for (int i = 1; i < menu.Count + 1; i++)
             {
                 if (i == choice)
@@ -193,7 +195,29 @@
         /// </summary>
         public void PrintMessageLog()
         {
-            //Todo: Implement!
+            //Todo: Implement PrintMessageLog()!
+            PrintDivider();
+        }
+
+        /// <summary>
+        /// Prints the divider that segments the console in two halves.
+        /// </summary>
+        private void PrintDivider()
+        {
+            int halfWay = Width / 2;
+            Console.BackgroundColor = ConsoleColor.White;
+            for (int i = 0; i < Height; i++)
+            {
+                Console.SetCursorPosition(halfWay, i);
+                Console.Write(" ");
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+
+
+        public void AddToMessageLog(string message)
+        {
+            //ToDo: Implement AddToLog()!
         }
 
         /// <summary>

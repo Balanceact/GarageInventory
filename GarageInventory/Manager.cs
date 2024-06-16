@@ -80,11 +80,11 @@
 
                 if (prepopulated > capacity)
                 {
-                    UI.WriteLine("Invalid number. Cant be higher than number of parking spaces.");      //ToDo: Message log.
+                    UI.AddToMessageLog("Invalid number. Cant be higher than number of parking spaces.");
                 }
                 else if (prepopulated < 0)
                 {
-                    UI.WriteLine("Invalid number. Can't be negative.");                                 //ToDo: Message log.
+                    UI.AddToMessageLog("Invalid number. Can't be negative.");
                 }
                 else
                 {
@@ -97,11 +97,11 @@
                 predefined = UI.AskForInt("Number of prepopulated to automatically define");
                 if (predefined > prepopulated)
                 {
-                    UI.WriteLine("Invalid number. Cant be higher than number to prepopulate.");         //ToDo: Message log.
+                    UI.AddToMessageLog("Invalid number. Cant be higher than number to prepopulate.");
                 }
                 else if (prepopulated < 0)
                 {
-                    UI.WriteLine("Invalid number. Can't be negative.");                                 //ToDo: Message log.
+                    UI.AddToMessageLog("Invalid number. Can't be negative.");
                 }
                 else
                 {

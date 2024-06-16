@@ -3,7 +3,9 @@
     public interface IUI
     {
         int Height { get; }
+        int Width { get; }
 
+        void AddToMessageLog(string message);
         bool AskForBool(List<string> menu);
         int AskForInt(string prompt);
         string AskForString(string prompt);

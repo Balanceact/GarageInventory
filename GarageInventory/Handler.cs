@@ -122,13 +122,13 @@
         {
             if (_listOfVehicles.ParkingSpacesFilled == _listOfVehicles.Count)
             {
-                UI.WriteLine("Garage is full!");                                //ToDo: Message log.
+                UI.AddToMessageLog("Garage is full!");
             }
             else
             {
                 _listOfVehicles[_listOfVehicles.ParkingSpacesFilled] = vehicle;
                 _listOfVehicles.ParkingSpacesFilled++;
-                UI.WriteLine("Vehicle added to Garage!");                       //ToDo: Message log.
+                UI.AddToMessageLog("Vehicle added to Garage!");
             }
         }
 
@@ -162,13 +162,13 @@
                         break;
                 }
             }
-            UI.Clear();                                                                     //ToDo: Message log.
-            UI.WriteLine($"Airplane:   {airplane}");
-            UI.WriteLine($"Boat:       {boat}");
-            UI.WriteLine($"Bus:        {bus}");
-            UI.WriteLine($"Car:        {car}");
-            UI.WriteLine($"Motorcycle: {motorcycle}");
-            UI.WriteLine($"Truck:      {truck}");
+            UI.Clear();
+            UI.AddToMessageLog($"Airplane:   {airplane}");
+            UI.AddToMessageLog($"Boat:       {boat}");
+            UI.AddToMessageLog($"Bus:        {bus}");
+            UI.AddToMessageLog($"Car:        {car}");
+            UI.AddToMessageLog($"Motorcycle: {motorcycle}");
+            UI.AddToMessageLog($"Truck:      {truck}");
             UI.ReadKey();
         }
 
@@ -210,7 +210,7 @@
                 if (v == vehicle)
                 {
                     _listOfVehicles.Remove(vehicle);
-                    UI.WriteLine("Vehicle removed from Garage!");               //ToDo: Message log.
+                    UI.AddToMessageLog("Vehicle removed from Garage!");
                 }
             }
         }
@@ -266,7 +266,7 @@
                         AddVehicleToList(AskForTruck());
                         break;
                 }
-                UI.WriteLine("User defined vehicle has been added to the garage!");         //ToDo: Message log.
+                UI.AddToMessageLog("User defined vehicle has been added to the garage!");
             }
         }
 
