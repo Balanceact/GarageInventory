@@ -20,7 +20,8 @@
             _garageManagerMenuList = new List<string>() { "       Add vehicle        ",
                                                           "      Remove vehicle      ",
                                                           "     List all parked      ",
-                                                          "  List types and amounts  " };
+                                                          "  List types and amounts  ",
+                                                          "           Quit           "};
         }
         /// <summary>
         /// Initializes the application then loads the main menu.
@@ -129,22 +130,29 @@
         /// <param name="handler"></param>
         public void GarageManager(IHandler handler)
         {
-            int choice = UI.Menu(1, GarageManagerMenuList);
-            switch (choice)
+            int choice;
+            do
             {
-                case 1:
-                    handler.AddVehicle(1);
-                    break;
-                case 2:
-                    handler.RemoveVehicle(handler.SelectVehicle());
-                    break;
-                case 3:
-                    handler.ListAllParked();
-                    break;
-                case 4:
-                    handler.ListTypesAndAmounts();
-                    break;
-            }
+                choice = UI.Menu(1, GarageManagerMenuList);
+                switch (choice)
+                {
+                    case 1:
+                        handler.AddVehicle(1);
+                        break;
+                    case 2:
+                        handler.RemoveVehicle(handler.SelectVehicle());
+                        break;
+                    case 3:
+                        handler.ListAllParked();
+                        break;
+                    case 4:
+                        handler.ListTypesAndAmounts();
+                        break;
+                    case 5:
+                        UI.Quit();
+                        break;
+                }
+            } while (true);
         }
 
     }

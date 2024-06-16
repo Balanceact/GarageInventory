@@ -78,7 +78,7 @@
             string input;
             do
             {
-                Console.WriteLine($"{prompt}: ");
+                AddToMessageLog($"{prompt}: ");
                 input = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(input))
                     AddToMessageLog($"You have to supply a valid {prompt.ToLower()}");
@@ -108,8 +108,13 @@
         /// </summary>
         public void Clear()
         {
-            Console.Clear();
-            PrintMessageLog();
+            string blanker = new string(' ', HalfWay - 1);
+            ResetPosition();
+            for (int i = 0; i < Height; i++)
+            {
+                WriteLine(blanker);
+            }
+            ResetPosition();
         }
 
         /// <summary>
@@ -156,7 +161,7 @@
         {
             Console.SetCursorPosition(0, Height - 1);
             Console.Write($"Page {currentPage} of {pages}.");
-            Console.SetCursorPosition(0, 0);
+            ResetPosition();
         }
 
         /// <summary>
@@ -167,7 +172,6 @@
         public void PrintMenu(int choice, List<string> menu)
         {
             ResetPosition();
-            AddToMessageLog("Choose an option using the up & down arrow keys & enter:");
             for (int i = 1; i < menu.Count + 1; i++)
             {
                 if (i == choice)
@@ -193,6 +197,7 @@
         {
             bool notChosen = true;
             Clear();
+            AddToMessageLog("Choose an option using the up & down arrow keys & enter:");
             do
             {
                 PrintMenu(choice, menu);
@@ -223,15 +228,15 @@
         /// </summary>
         public void PrintMessageLog()
         {
-            //Todo: Implement PrintMessageLog()!
             PrintDivider();
             int i = 0;
             foreach (string message in _messageLog)
             {
                 Console.SetCursorPosition(HalfWay + 2, i);
-                Console.WriteLine(message + new string(' ', HalfWay - message.Length - 2));
+                WriteLine(message + new string(' ', HalfWay - message.Length - 2));
                 i++;
             }
+            Clear();
         }
 
         /// <summary>
@@ -252,6 +257,7 @@
         public void AddToMessageLog(string message)
         {
             _messageLog.Add(message);
+            PrintMessageLog();
         }
 
         /// <summary>

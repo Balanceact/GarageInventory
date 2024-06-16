@@ -162,14 +162,12 @@
                         break;
                 }
             }
-            UI.Clear();
-            UI.AddToMessageLog($"Airplane:   {airplane}");
-            UI.AddToMessageLog($"Boat:       {boat}");
-            UI.AddToMessageLog($"Bus:        {bus}");
-            UI.AddToMessageLog($"Car:        {car}");
-            UI.AddToMessageLog($"Motorcycle: {motorcycle}");
-            UI.AddToMessageLog($"Truck:      {truck}");
-            UI.ReadKey();
+            UI.AddToMessageLog($"Airplane:      {airplane}");
+            UI.AddToMessageLog($"Boat:          {boat}");
+            UI.AddToMessageLog($"Bus:           {bus}");
+            UI.AddToMessageLog($"Car:           {car}");
+            UI.AddToMessageLog($"Motorcycle:    {motorcycle}");
+            UI.AddToMessageLog($"Truck:         {truck}");
         }
 
         /// <summary>
@@ -231,7 +229,6 @@
                 ListOfPredefinedVehicles.RemoveAt(myRandom);
                 //UI.WriteLine("Predefined vehicle has been added to the garage!");                   //ToDo: Message log.
             }
-            UI.ReadKey();
             AddVehicle(numberOfVehicles - numberOfPredefined);
         }
 
