@@ -10,6 +10,7 @@ namespace GarageInventory
         public T this[int index] { get { return _array[index]; } set { _array[index] = value; } }
         public int Count => _array.Length;
         public int ParkingSpacesFilled { get { return _parkingSpacesFilled; } set { _parkingSpacesFilled = value; } }
+        public bool IsFull => Count <= ParkingSpacesFilled;
 
         public Garage(int capacity)
         {

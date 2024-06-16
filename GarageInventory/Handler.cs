@@ -120,16 +120,9 @@
         /// <param name="vehicle"></param>
         public void AddVehicleToList(Vehicle vehicle)
         {
-            if (_listOfVehicles.ParkingSpacesFilled == _listOfVehicles.Count)
-            {
-                UI.AddToMessageLog("Garage is full!");
-            }
-            else
-            {
-                _listOfVehicles[_listOfVehicles.ParkingSpacesFilled] = vehicle;
-                _listOfVehicles.ParkingSpacesFilled++;
-                UI.AddToMessageLog("Vehicle added to Garage!");
-            }
+            _listOfVehicles[_listOfVehicles.ParkingSpacesFilled] = vehicle;
+            _listOfVehicles.ParkingSpacesFilled++;
+            UI.AddToMessageLog("Vehicle added to Garage!");
         }
 
         /// <summary>
@@ -240,30 +233,37 @@
         {
             int choice = 1;
             for (int i = 0; i < numberOfVehicles; i++)
-            {
-                choice = UI.Menu(choice, _listOfVehicleTypes);
-                switch (choice)
+            {   
+                if (_listOfVehicles.IsFull)
                 {
-                    case 1:
-                        AddVehicleToList(AskForAirplane());
-                        break;
-                    case 2:
-                        AddVehicleToList(AskForBoat());
-                        break;
-                    case 3:
-                        AddVehicleToList(AskForBus());
-                        break;
-                    case 4:
-                        AddVehicleToList(AskForCar());
-                        break;
-                    case 5:
-                        AddVehicleToList(AskForMotorcycle());
-                        break;
-                    case 6:
-                        AddVehicleToList(AskForTruck());
-                        break;
+                    UI.AddToMessageLog("The garage is full!");
                 }
-                UI.AddToMessageLog("User defined vehicle has been added to the garage!");
+                else
+                {
+                    choice = UI.Menu(choice, _listOfVehicleTypes);
+                    switch (choice)
+                    {
+                        case 1:
+                            AddVehicleToList(AskForAirplane());
+                            break;
+                        case 2:
+                            AddVehicleToList(AskForBoat());
+                            break;
+                        case 3:
+                            AddVehicleToList(AskForBus());
+                            break;
+                        case 4:
+                            AddVehicleToList(AskForCar());
+                            break;
+                        case 5:
+                            AddVehicleToList(AskForMotorcycle());
+                            break;
+                        case 6:
+                            AddVehicleToList(AskForTruck());
+                            break;
+                    }
+                    UI.AddToMessageLog("User defined vehicle has been added to the garage!");
+                }
             }
         }
 

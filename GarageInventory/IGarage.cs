@@ -6,6 +6,7 @@
 
         int Count { get; }
         int ParkingSpacesFilled { get; set; }
+        bool IsFull { get; }
 
         IEnumerator<T> GetEnumerator();
         void Remove(Vehicle vehicle);
