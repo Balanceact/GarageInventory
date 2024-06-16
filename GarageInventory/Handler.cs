@@ -168,14 +168,14 @@
         /// </summary>
         public void ListAllParked()
         {
-            int max = UI.Height - 2;                                                       // ToDo: Implement proper menu of vehicles.
-            int pages = ( _listOfVehicles.ParkingSpacesFilled / max ) + 1;
+            // ToDo: Implement proper menu of vehicles.
+            int pages = ( _listOfVehicles.ParkingSpacesFilled / UI.Height) + 1;
             int currentPage = 1;
             bool noChoice = true;
             do
             {
-                UI.PrintPageCount(currentPage, pages);
-                Console.ReadLine();
+                UI.AddToMessageLog($"Page {currentPage} of {pages}.");
+                SelectVehicle();
             } while (noChoice);
         }
 

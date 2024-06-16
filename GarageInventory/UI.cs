@@ -8,8 +8,6 @@
         public int Width => Console.WindowWidth;
         public int HalfWay => Width / 2;
 
-
-
         public UI()
         {
             _messageLog = new LimitedList<string>(Height);
@@ -150,18 +148,6 @@
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        /// <summary>
-        /// Prints the current page number in a multi page view in the bottom left corner then returns the cursor to the top left corner.
-        /// </summary>
-        /// <param name="currentPage"></param>
-        /// <param name="pages"></param>
-        public void PrintPageCount(int currentPage, int pages)
-        {
-            Console.SetCursorPosition(0, Height - 1);
-            Console.Write($"Page {currentPage} of {pages}.");
-            ResetPosition();
         }
 
         /// <summary>
