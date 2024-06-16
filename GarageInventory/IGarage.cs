@@ -10,7 +10,7 @@ namespace GarageInventory
         bool IsFull { get; }
 
         IEnumerator<T> GetEnumerator();
-        List<string> GetRange(int start, int end);
+        List<string> AllParkedToString();
         void Remove(Vehicle vehicle);
     }
 }

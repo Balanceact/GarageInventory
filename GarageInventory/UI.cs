@@ -174,7 +174,7 @@
         }
 
         /// <summary>
-        /// Moves the highlighted marker for the menu based on input and returns which option was chosen.
+        /// Moves the highlighted marker for the menu based on input and returns which option was chosen. Can handle multiple pages of options.
         /// </summary>
         /// <param name="choice"></param>
         /// <param name="menu"></param>

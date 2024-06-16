@@ -176,7 +176,7 @@
             do
             {
                 UI.AddToMessageLog($"Page {currentPage} of {pages}.");
-                UI.Menu(1, _listOfVehicles.GetRange(start: ((currentPage - 1) * maxPerPage), end: ((currentPage - 1) * maxPerPage) + maxPerPage - 1));
+                UI.Menu(1, _listOfVehicles.AllParkedToString());
             } while (noChoice);
         }
 
