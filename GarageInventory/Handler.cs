@@ -169,13 +169,14 @@
         public void ListAllParked()
         {
             // ToDo: Implement proper menu of vehicles.
-            int pages = ( _listOfVehicles.ParkingSpacesFilled / UI.Height) + 1;
+            int maxPerPage = UI.Height;
+            int pages = ( _listOfVehicles.ParkingSpacesFilled / maxPerPage) + 1;
             int currentPage = 1;
             bool noChoice = true;
             do
             {
                 UI.AddToMessageLog($"Page {currentPage} of {pages}.");
-                SelectVehicle();
+                UI.Menu(1, _listOfVehicles.GetRange(start: ((currentPage - 1) * maxPerPage), end: ((currentPage - 1) * maxPerPage) + maxPerPage - 1));
             } while (noChoice);
         }
 
@@ -220,7 +221,6 @@
                 myRandom = random.Next(79 - i);
                 AddVehicleToList(ListOfPredefinedVehicles[myRandom]);
                 ListOfPredefinedVehicles.RemoveAt(myRandom);
-                //UI.WriteLine("Predefined vehicle has been added to the garage!");                   //ToDo: Message log.
             }
             AddVehicle(numberOfVehicles - numberOfPredefined);
         }

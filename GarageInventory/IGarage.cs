@@ -1,4 +1,5 @@
-﻿namespace GarageInventory
+﻿
+namespace GarageInventory
 {
     internal interface IGarage<T> where T : Vehicle
     {
@@ -9,6 +10,7 @@
         bool IsFull { get; }
 
         IEnumerator<T> GetEnumerator();
+        List<string> GetRange(int start, int end);
         void Remove(Vehicle vehicle);
     }
 }

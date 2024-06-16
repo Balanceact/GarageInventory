@@ -57,5 +57,20 @@ namespace GarageInventory
             _array = array2;
         }
 
+        /// <summary>
+        /// Returns a List<string> of the '.ToString' elements for the selected range of the array. 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public List<string> GetRange(int start, int end)
+        {
+            List<string> range = new List<string>();
+            for (int i = start; i < Math.Min(end, ParkingSpacesFilled); i++)
+            {
+                range.Add(_array[i].ToString());
+            }
+            return range;
+        }
     }
 }

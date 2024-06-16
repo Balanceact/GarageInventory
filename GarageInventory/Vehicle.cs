@@ -31,6 +31,8 @@
             _description = description;
             _forRent = forRent;
         }
+
+        public override string ToString() => _licensePlateNumber + " " + _make + " " + _model + " " + _color;
     }
 
     internal class Airplane : Vehicle
