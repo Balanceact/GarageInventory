@@ -5,6 +5,7 @@
         public void Write(string message) { Console.Write(message); }
         public void WriteLine(string message) { Console.WriteLine(message); }
         public ConsoleKey ReadKey() => Console.ReadKey(intercept: true).Key;
+        public int Height => Console.WindowHeight;
 
         public string ReadLine()
         {
@@ -45,7 +46,8 @@
         {
             bool fail = true;
             string input;
-            do {
+            do
+            {
                 Console.WriteLine($"{prompt}: ");
                 input = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(input))
@@ -63,7 +65,8 @@
         /// <returns></returns>
         public int AskForInt(string prompt)
         {
-            do {
+            do
+            {
                 string given = AskForString(prompt);
                 if (int.TryParse(given, out int result))
                     return result;
@@ -71,11 +74,12 @@
         }
 
         /// <summary>
-        /// Clears the console.
+        /// Clears the menu half of the console.
         /// </summary>
         public void Clear()
         {
             Console.Clear();
+            PrintMessageLog();
         }
 
         /// <summary>
@@ -92,15 +96,6 @@
         public void ResetPosition()
         {
             Console.SetCursorPosition(0, 0);
-        }
-
-        /// <summary>
-        /// Gets the current number of rows in the console window.
-        /// </summary>
-        /// <returns></returns>
-        public int Hight()
-        {
-            return Console.WindowHeight;
         }
 
         /// <summary>
@@ -128,7 +123,7 @@
         /// <param name="pages"></param>
         public void PrintPageCount(int currentPage, int pages)
         {
-            int max = Hight();
+            int max = Height;
             Console.SetCursorPosition(0, max - 1);
             Console.Write($"Page {currentPage} of {pages}.");                                   //ToDo: Message log.
             Console.SetCursorPosition(0, 0);
@@ -191,6 +186,14 @@
             } while (notChosen);
 
             return choice;
+        }
+
+        /// <summary>
+        /// Prints the message log in the message half of the console.
+        /// </summary>
+        public void PrintMessageLog()
+        {
+            //Todo: Implement!
         }
 
         /// <summary>

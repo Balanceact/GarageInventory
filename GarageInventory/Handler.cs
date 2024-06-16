@@ -177,7 +177,7 @@
         /// </summary>
         public void ListAllParked()
         {
-            int max = UI.Hight() - 2;                                                       // ToDo: Implement proper menu of vehicles.
+            int max = UI.Height - 2;                                                       // ToDo: Implement proper menu of vehicles.
             int pages = ( _listOfVehicles.ParkingSpacesFilled / max ) + 1;
             int currentPage = 1;
             bool noChoice = true;
