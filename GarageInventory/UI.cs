@@ -5,10 +5,33 @@
         public int Height => Console.WindowHeight;
         public int Width => Console.WindowWidth;
 
+        public UI()
+        {
+            LimitedList<string> messageLog = new LimitedList<string>(Height);
+        }
+
+        /// <summary>
+        /// Writes a message to the console.
+        /// </summary>
+        /// <param name="message"></param>
         public void Write(string message) { Console.Write(message); }
+
+        /// <summary>
+        /// Writes a message to the console and inserts a new line character at the end.
+        /// </summary>
+        /// <param name="message"></param>
         public void WriteLine(string message) { Console.WriteLine(message); }
+        
+        /// <summary>
+        /// Pauses the application and waits for the next keypress on the keyboard.
+        /// </summary>
+        /// <returns></returns>
         public ConsoleKey ReadKey() => Console.ReadKey(intercept: true).Key;
 
+        /// <summary>
+        /// Takes an input string from the user.
+        /// </summary>
+        /// <returns></returns>
         public string ReadLine()
         {
             string input;
