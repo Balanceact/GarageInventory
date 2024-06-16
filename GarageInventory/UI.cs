@@ -2,12 +2,17 @@
 {
     public class UI : IUI
     {
+        private LimitedList<string> _messageLog;
+
         public int Height => Console.WindowHeight;
         public int Width => Console.WindowWidth;
+        public int HalfWay => Width / 2;
+
+
 
         public UI()
         {
-            LimitedList<string> messageLog = new LimitedList<string>(Height);
+            _messageLog = new LimitedList<string>(Height);
         }
 
         /// <summary>
@@ -220,6 +225,13 @@
         {
             //Todo: Implement PrintMessageLog()!
             PrintDivider();
+            int i = 0;
+            foreach (string message in _messageLog)
+            {
+                Console.SetCursorPosition(HalfWay + 2, i);
+                Console.WriteLine(message + new string(' ', HalfWay - message.Length - 2));
+                i++;
+            }
         }
 
         /// <summary>
@@ -227,11 +239,10 @@
         /// </summary>
         private void PrintDivider()
         {
-            int halfWay = Width / 2;
             Console.BackgroundColor = ConsoleColor.White;
             for (int i = 0; i < Height; i++)
             {
-                Console.SetCursorPosition(halfWay, i);
+                Console.SetCursorPosition(HalfWay, i);
                 Console.Write(" ");
             }
             Console.BackgroundColor = ConsoleColor.Black;
@@ -240,7 +251,7 @@
 
         public void AddToMessageLog(string message)
         {
-            //ToDo: Implement AddToLog()!
+            _messageLog.Add(message);
         }
 
         /// <summary>
