@@ -251,23 +251,24 @@ namespace GarageInventory
                                 currentPage--;
                             }
                             AddToMessageLog($"Page {currentPage} of {pages}.");
+                            Clear();
                         }
                         break;
                     case ConsoleKey.DownArrow:
                         choice++;
+                        if (currentPage == pages && choice == lastPage + 1)
+                        {
+                            choice = 1;
+                            currentPage = 1;
+                            AddToMessageLog($"Page {currentPage} of {pages}.");
+                            Clear();
+                        }
                         if (choice == max + 1)
                         {
-                            if (currentPage == pages && choice == lastPage)
-                            {
-                                choice = 1;
-                                currentPage = 1;
-                            }
-                            else
-                            {
-                                choice = 1;
-                                currentPage++;
-                            }
+                            choice = 1;
+                            currentPage++;
                             AddToMessageLog($"Page {currentPage} of {pages}.");
+                            Clear();
                         }
                         break;
                     case ConsoleKey.Enter:

@@ -185,6 +185,7 @@
                 if (v == vehicle)
                 {
                     _listOfVehicles.Remove(vehicle);
+                    _listOfVehicles.ParkingSpacesFilled--;
                     UI.AddToMessageLog("Vehicle removed from Garage!");
                 }
             }
