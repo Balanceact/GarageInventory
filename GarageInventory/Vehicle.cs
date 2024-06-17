@@ -1,6 +1,6 @@
 ﻿namespace GarageInventory
 {
-    internal abstract class Vehicle
+    public abstract class Vehicle
     {
         private string _licensePlateNumber;
         private string _make;

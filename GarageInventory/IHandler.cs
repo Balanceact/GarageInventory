@@ -1,6 +1,6 @@
 ﻿namespace GarageInventory
 {
-    internal interface IHandler
+    public interface IHandler
     {
         List<string> IsElectric { get; }
         List<string> IsForRent { get; }

@@ -1,6 +1,6 @@
 ﻿namespace GarageInventory
 {
-    internal class Manager
+    public class Manager
     {
         private IUI _ui;
         private List<string> _mainMenuList;

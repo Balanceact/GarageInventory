@@ -1,6 +1,6 @@
 ﻿namespace GarageInventory
 {
-    internal class Handler : IHandler
+    public class Handler : IHandler
     {
         private IUI _ui;
         private IGarage<Vehicle> _listOfVehicles;
@@ -168,7 +168,6 @@
         /// </summary>
         public Vehicle ListAllParked()
         {
-            // ToDo: Implement proper menu of vehicles.
             int selection = 0;
             selection = UI.MenuPaged(1, _listOfVehicles.AllParkedToString());
             return _listOfVehicles[selection];

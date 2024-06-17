@@ -9,10 +9,12 @@ namespace GarageInventory
         public int Height => Console.WindowHeight;
         public int Width => Console.WindowWidth;
         public int HalfWay => Width / 2;
+        public Manager Manager { get; }
 
         public UI()
         {
             _messageLog = new LimitedList<string>(Height);
+            Manager = new Manager(this);
         }
 
         /// <summary>
@@ -185,7 +187,7 @@ namespace GarageInventory
         {
             bool notChosen = true;
             Clear();
-            AddToMessageLog("Choose an option using the up & down arrow keys & enter:");
+            AddToMessageLog("Using the up & down arrow keys & enter, esc for menu.");
             do
             {
                 PrintMenu(choice, menu);
@@ -200,6 +202,9 @@ namespace GarageInventory
                         break;
                     case ConsoleKey.Enter:
                         notChosen = false;
+                        break;
+                    case ConsoleKey.Escape:
+                        Manager.MainMenu();
                         break;
                 }
                 if (choice == 0)
@@ -278,6 +283,9 @@ namespace GarageInventory
                         break;
                     case ConsoleKey.Enter:
                         notChosen = false;
+                        break;
+                    case ConsoleKey.Escape:
+                        Manager.MainMenu();
                         break;
                 }
             } while (notChosen);
