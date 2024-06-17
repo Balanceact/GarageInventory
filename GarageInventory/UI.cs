@@ -224,6 +224,11 @@ namespace GarageInventory
             int currentPage = 1;
             int pages = (menu.Count / max) + 1;
             int lastPage = menu.Count % max;
+            if (lastPage == 0)
+            {
+                lastPage = max;
+                pages--;
+            }
             Clear();
             AddToMessageLog("Choose an option using the up & down arrow keys & enter:");
             AddToMessageLog($"Page {currentPage} of {pages}.");
@@ -276,7 +281,7 @@ namespace GarageInventory
                         break;
                 }
             } while (notChosen);
-            return ((currentPage - 1) * Height) + choice;
+            return ((currentPage - 1) * Height) + choice - 1;
         }
 
         /// <summary>
@@ -309,7 +314,10 @@ namespace GarageInventory
             Console.BackgroundColor = ConsoleColor.Black;
         }
 
-
+        /// <summary>
+        /// Adds a message to the message log and then reprints the log.
+        /// </summary>
+        /// <param name="message"></param>
         public void AddToMessageLog(string message)
         {
             _messageLog.Add(message);
