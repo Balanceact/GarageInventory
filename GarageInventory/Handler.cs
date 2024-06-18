@@ -280,7 +280,7 @@
                 int i = 0;
                 foreach (Vehicle item in ListOfVehicles)
                 {
-                    if (item.LicensePlateNumber.ToUpper() == licensePlateNumber.ToUpper());
+                    if (item.LicensePlateNumber.ToUpper() == licensePlateNumber.ToUpper())
                     {
                         i++;
                     }
