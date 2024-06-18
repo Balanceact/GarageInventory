@@ -2,7 +2,7 @@
 
 namespace GarageInventory
 {
-    internal class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
+    public class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
     {
         private T[] _array;
         private int _parkingSpacesFilled;

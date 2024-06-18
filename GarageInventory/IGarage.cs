@@ -1,7 +1,7 @@
 ﻿
 namespace GarageInventory
 {
-    internal interface IGarage<T> where T : Vehicle
+    public interface IGarage<T> where T : Vehicle
     {
         T this[int index] { get; set; }
 

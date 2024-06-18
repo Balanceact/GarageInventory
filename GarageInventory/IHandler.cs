@@ -14,5 +14,6 @@
         void ListTypesAndAmounts();
         void Populate(int numberOfVehicles, int numberOfPredefined);
         void RemoveVehicle(Vehicle vehicle);
+        void Search();
     }
 }

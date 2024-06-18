@@ -7,12 +7,15 @@
         private List<string> _listOfVehicleTypes;
         private List<string> _isForRent;
         private List<string> _isElectric;
+        private List<string> _vehicleProperties;
         private List<Vehicle> _listOfPredefinedVehicles;
 
         public IUI UI { get { return _ui; } }
+        public IGarage<Vehicle> ListOfVehicles { get { return _listOfVehicles; } }
         public List<string> ListOfVehicleTypes { get { return _listOfVehicleTypes; } }
         public List<string> IsForRent { get { return _isForRent; } }
         public List<string> IsElectric { get { return _isElectric; } }
+        public List<string> VehicleProperties { get { return _vehicleProperties; } }
         public List<Vehicle> ListOfPredefinedVehicles { get { return _listOfPredefinedVehicles; } }
 
         public Handler(int capacity, IUI UI)
@@ -24,11 +27,18 @@
                                                        "    Bus     ",
                                                        "    Car     ",
                                                        " Motorcycle ",
-                                                       "   Truck    "};
+                                                       "   Truck    " };
             _isForRent = new List<string>() { "   Is for rent   ",
                                               " Is not for rent " };
             _isElectric = new List<string>() { "   Is electric   ",
                                                " Is not electric " };
+            _vehicleProperties = new List<string>() { " License Plate Number ", 
+                                                      "         Make         ", 
+                                                      "         Model        ", 
+                                                      "         Year         ", 
+                                                      "   Number of Wheels   ", 
+                                                      "         Color        ",
+                                                      "       For Rent       " };
             _listOfPredefinedVehicles = new List<Vehicle>()
             {
                 new Airplane("N2422V", "Cesna", "140", 2018, 3, "White", "Small single engine" , false, 345, 1),
@@ -61,16 +71,16 @@
                 new Bus("BUS007", "Volvo", "9700", 2022, 10, "Blue", "Common bus for inter city public transport.", true, 49),
                 new Bus("BUS008", "Volvo", "9700", 2022, 10, "Red", "Common bus for inter city public transport.", false, 49),
                 new Bus("BUS009", "Volvo", "9700", 2022, 10, "Red", "Common bus for inter city public transport.", true, 49),
-                new Car("SKA540", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Petrol"),
-                new Car("SKA541", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Petrol"),
-                new Car("SKA542", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Petrol"),
-                new Car("SKA543", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Petrol"),
-                new Car("SKA544", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Petrol"),
-                new Car("SKA545", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Petrol"),
-                new Car("SKA546", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Petrol"),
-                new Car("SKA547", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Petrol"),
-                new Car("SKA548", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Petrol"),
-                new Car("SKA549", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Petrol"),
+                new Car("SKA540", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
+                new Car("SKA541", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
+                new Car("SKA542", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
+                new Car("SKA543", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
+                new Car("SKA544", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
+                new Car("SKA545", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
+                new Car("SKA546", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
+                new Car("SKA547", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
+                new Car("SKA548", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
+                new Car("SKA549", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
                 new Car("SAB950", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "White", "Test car used at Millbrook proving grounds in the UK", false, "Diesel"),
                 new Car("SAB951", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "White", "Test car used at Millbrook proving grounds in the UK", true, "Diesel"),
                 new Car("SAB952", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Silver", "Test car used at Millbrook proving grounds in the UK", false, "Diesel"),
@@ -112,6 +122,13 @@
                 new Truck("TRK008", "Scania", "P360", 2024, 10, "Red", "Compact with a low cab weight", false, false),
                 new Truck("TRK009", "Scania", "P360", 2024, 10, "Red", "Compact with a low cab weight", true, false),
             };
+        }
+
+
+        public void Search()
+        {
+            //ToDo: Implement LinQ Search functionality!
+
         }
 
         /// <summary>
@@ -251,12 +268,39 @@
         }
 
         /// <summary>
+        /// Asks the user for a license plate number and verifies that it's unique.
+        /// </summary>
+        /// <returns></returns>
+        private string AskForLicensePlateNumber()   //ToDo: Implement license plate number == Unique.
+        {
+            string licensePlateNumber = UI.AskForString("License plate number");
+            bool incorrect = true;
+            do
+            {
+                int i = 0;
+                foreach (Vehicle item in ListOfVehicles)
+                {
+                    if (item.LicensePlateNumber.ToUpper() == licensePlateNumber.ToUpper());
+                    {
+                        i++;
+                    }
+                }
+                if (i > 0)
+                {
+                    UI.AddToMessageLog($"{licensePlateNumber} is not unique!");
+                    licensePlateNumber = UI.AskForString("License plate number");
+                }
+            } while (incorrect);
+            return licensePlateNumber;
+        }
+
+        /// <summary>
         /// Asks the user for an airplanes properties.
         /// </summary>
         /// <returns></returns>
         private Vehicle AskForAirplane()
         {
-            string licensePlateNumber = UI.AskForString("License plate number");
+            string licensePlateNumber = AskForLicensePlateNumber();
             string make = UI.AskForString("Make");
             string model = UI.AskForString("Model");
             int year = UI.AskForInt("Year");
@@ -276,7 +320,7 @@
         /// <returns></returns>
         private Vehicle AskForBoat()
         {
-            string licensePlateNumber = UI.AskForString("License plate number");
+            string licensePlateNumber = AskForLicensePlateNumber();
             string make = UI.AskForString("Make");
             string model = UI.AskForString("Model");
             int year = UI.AskForInt("Year");
@@ -295,7 +339,7 @@
         /// <returns></returns>
         private Vehicle AskForBus()
         {
-            string licensePlateNumber = UI.AskForString("License plate number");
+            string licensePlateNumber = AskForLicensePlateNumber();
             string make = UI.AskForString("Make");
             string model = UI.AskForString("Model");
             int year = UI.AskForInt("Year");
@@ -314,7 +358,7 @@
         /// <returns></returns>
         private Vehicle AskForCar()
         {
-            string licensePlateNumber = UI.AskForString("License plate number");
+            string licensePlateNumber = AskForLicensePlateNumber();
             string make = UI.AskForString("Make");
             string model = UI.AskForString("Model");
             int year = UI.AskForInt("Year");
@@ -333,7 +377,7 @@
         /// <returns></returns>
         private Vehicle AskForMotorcycle()
         {
-            string licensePlateNumber = UI.AskForString("License plate number");
+            string licensePlateNumber = AskForLicensePlateNumber();
             string make = UI.AskForString("Make");
             string model = UI.AskForString("Model");
             int year = UI.AskForInt("Year");
@@ -352,7 +396,7 @@
         /// <returns></returns>
         private Vehicle AskForTruck()
         {
-            string licensePlateNumber = UI.AskForString("License plate number");
+            string licensePlateNumber = AskForLicensePlateNumber();
             string make = UI.AskForString("Make");
             string model = UI.AskForString("Model");
             int year = UI.AskForInt("Year");

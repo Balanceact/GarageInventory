@@ -21,7 +21,7 @@
                                                           "      Remove vehicle      ",
                                                           "     List all parked      ",
                                                           "  List types and amounts  ",
-                                                          "           Quit           "};
+                                                          "          Search          " };
         }
         /// <summary>
         /// Initializes the application then loads the main menu.
@@ -121,12 +121,12 @@
         
         private void LoadGarage()
         {
-            throw new NotImplementedException();
+            //ToDo: Implement Load functionality!
         }
 
         private void SaveGarage()
         {
-            throw new NotImplementedException();
+            //ToDo: Implement Save functionality!
         }
 
         /// <summary>
@@ -135,10 +135,10 @@
         /// <param name="handler"></param>
         public void GarageManager(IHandler handler)
         {
-            int choice;
+            int choice = 1;
             do
             {
-                choice = UI.Menu(1, GarageManagerMenuList);
+                choice = UI.Menu(choice, GarageManagerMenuList);
                 switch (choice)
                 {
                     case 1:
@@ -154,7 +154,7 @@
                         handler.ListTypesAndAmounts();
                         break;
                     case 5:
-                        UI.Quit();
+                        handler.Search();
                         break;
                 }
             } while (true);

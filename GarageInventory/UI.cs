@@ -24,7 +24,7 @@ namespace GarageInventory
         public void Write(string message) { Console.Write(message); }
 
         /// <summary>
-        /// Writes a message to the console and inserts a new line character at the end.
+        /// Writes a message to the console and inserts a new-line character at the end.
         /// </summary>
         /// <param name="message"></param>
         public void WriteLine(string message) { Console.WriteLine(message); }
