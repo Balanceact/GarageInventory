@@ -271,7 +271,7 @@
         /// Asks the user for a license plate number and verifies that it's unique.
         /// </summary>
         /// <returns></returns>
-        private string AskForLicensePlateNumber()   //ToDo: Implement license plate number == Unique.
+        private string AskForLicensePlateNumber()
         {
             string licensePlateNumber = UI.AskForString("License plate number");
             bool incorrect = true;
@@ -290,6 +290,8 @@
                     UI.AddToMessageLog($"{licensePlateNumber} is not unique!");
                     licensePlateNumber = UI.AskForString("License plate number");
                 }
+                else if (i == 0)
+                    incorrect = false;
             } while (incorrect);
             return licensePlateNumber;
         }

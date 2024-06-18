@@ -22,9 +22,7 @@ namespace GarageInventory
             host.Services.GetRequiredService<Manager>().Run();
         }
     }
-}/* Requirements Specification:
-        The registration number is unique.
-    Functionality:
+}/* Functionality:
         It should be possible to:
             Find a specific vehicle via the registration number. It should work with both ABC123 and Abc123 or AbC123.
             Search for vehicles based on one or more properties (all possible combinations from the base class Vehicle). For example:
