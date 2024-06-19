@@ -125,17 +125,16 @@
             };
         }
 
-        //ToDo: XML method summary!
+        //ToDo: Implement LinQ Search functionality! XML method summary!
         public void Search()
         {
-            //ToDo: Implement LinQ Search functionality!
             int choice = 1;
             string searchParameter;
             choice = UI.Menu(choice, _vehicleProperties);
             switch (choice)
             {
                 case 1: //  Search by: LicensePlateNumber
-                    searchParameter = UI.AskForString("License plate number").Trim();
+                    searchParameter = UI.AskForString("License plate number");
                     var vehicle = SearchByLicensePlateNumber(searchParameter);
                     if (vehicle == null)
                         UI.AddToMessageLog("License plate number not found!");
@@ -166,7 +165,11 @@
             }
         }
 
-        //ToDo: XML method summary!
+        /// <summary>
+        /// Searches in the Garage array after a vehicle with the stated license plate that equals searchParameter and returns that vehicle if it finds it.
+        /// </summary>
+        /// <param name="searchParameter"></param>
+        /// <returns></returns>
         public Vehicle SearchByLicensePlateNumber(string searchParameter)
         {
             foreach (Vehicle item in ListOfVehicles)
@@ -239,7 +242,7 @@
         }
 
         /// <summary>
-        /// Removes the selected vehicle
+        /// Removes the selected vehicle.
         /// </summary>
         /// <param name="vehicle"></param>
         public void RemoveVehicle(Vehicle vehicle)
@@ -321,7 +324,7 @@
         /// <returns></returns>
         private string AskForLicensePlateNumber()
         {
-            string licensePlateNumber = UI.AskForString("License plate number").Trim();
+            string licensePlateNumber = UI.AskForString("License plate number");
             bool incorrect = true;
             do
             {
@@ -336,7 +339,7 @@
                 if (i > 0)
                 {
                     UI.AddToMessageLog($"{licensePlateNumber} is not unique!");
-                    licensePlateNumber = UI.AskForString("License plate number").Trim();
+                    licensePlateNumber = UI.AskForString("License plate number");
                 }
                 else if (i == 0)
                     incorrect = false;

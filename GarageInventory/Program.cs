@@ -24,7 +24,6 @@ namespace GarageInventory
     }
 }/* Functionality:
         It should be possible to:
-            Find a specific vehicle via the registration number. It should work with both ABC123 and Abc123 or AbC123.
             Search for vehicles based on one or more properties (all possible combinations from the base class Vehicle). For example:
                 All black vehicles with four wheels.
                 All pink motorcycles with 3 wheels.
@@ -35,6 +34,4 @@ namespace GarageInventory
         Tests should be created in a separate test project. We limit ourselves to testing the public methods in the Garage class.
     Extra:
         It is possible in C# to write to and read from the file system from your application. Find out how to do this to be able to save your garage and load your garage.
-        Ability to also search for vehicle-specific properties.
-        Read the size of the garage from configuration. 
         (Writing tests for the entire application is considered an extra task if time permits) */

@@ -42,7 +42,7 @@
             string input;
             do
             {
-                input = Console.ReadLine()!;
+                input = Console.ReadLine()!.Trim();
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     AddToMessageLog("Input a valid option.");
@@ -79,7 +79,7 @@
             do
             {
                 AddToMessageLog($"{prompt}: ");
-                input = Console.ReadLine()!;
+                input = Console.ReadLine()!.Trim();
                 if (string.IsNullOrWhiteSpace(input))
                     AddToMessageLog($"You have to supply a valid {prompt.ToLower()}");
                 else
