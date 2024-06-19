@@ -125,7 +125,7 @@
             };
         }
 
-
+        //ToDo: XML method summary!
         public void Search()
         {
             //ToDo: Implement LinQ Search functionality!
@@ -135,7 +135,7 @@
             switch (choice)
             {
                 case 1: //  Search by: LicensePlateNumber
-                    searchParameter = UI.AskForString("License plate number");
+                    searchParameter = UI.AskForString("License plate number").Trim();
 
                     break;
                 case 2: //  Search by: Type
@@ -304,7 +304,7 @@
         /// <returns></returns>
         private string AskForLicensePlateNumber()
         {
-            string licensePlateNumber = UI.AskForString("License plate number");
+            string licensePlateNumber = UI.AskForString("License plate number").Trim();
             bool incorrect = true;
             do
             {
@@ -319,7 +319,7 @@
                 if (i > 0)
                 {
                     UI.AddToMessageLog($"{licensePlateNumber} is not unique!");
-                    licensePlateNumber = UI.AskForString("License plate number");
+                    licensePlateNumber = UI.AskForString("License plate number").Trim();
                 }
                 else if (i == 0)
                     incorrect = false;

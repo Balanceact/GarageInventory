@@ -38,6 +38,11 @@
         /// <returns></returns>
         public override string ToString() => _licensePlateNumber + " " + _make + " " + _model + " " + _color;
 
+        /// <summary>
+        /// Prints the known properties for a vehicle in the message log.
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <param name="vehicle"></param>
         public virtual void PrintVehicle(IUI ui, Vehicle vehicle)
         {
             ui.AddToMessageLog("Plate number: " + vehicle.LicensePlateNumber);
@@ -66,7 +71,11 @@
             _numberOfEngines = numberOfEngines;
         }
 
-
+        /// <summary>
+        /// Prints the known properties for a vehicle in the message log.
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <param name="vehicle"></param>
         public override void PrintVehicle(IUI ui, Vehicle vehicle)
         {
             ui.AddToMessageLog("Plate number: " + vehicle.LicensePlateNumber);
@@ -95,7 +104,11 @@
             _length = length;
         }
 
-
+        /// <summary>
+        /// Prints the known properties for a vehicle in the message log.
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <param name="vehicle"></param>
         public override void PrintVehicle(IUI ui, Vehicle vehicle)
         {
             ui.AddToMessageLog("Plate number: " + vehicle.LicensePlateNumber);
@@ -123,7 +136,11 @@
             _numberOfSeats = numberOfSeats;
         }
 
-
+        /// <summary>
+        /// Prints the known properties for a vehicle in the message log.
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <param name="vehicle"></param>
         public override void PrintVehicle(IUI ui, Vehicle vehicle)
         {
             ui.AddToMessageLog("Plate number: " + vehicle.LicensePlateNumber);
@@ -151,7 +168,11 @@
             _fuelType = fuelType;
         }
 
-
+        /// <summary>
+        /// Prints the known properties for a vehicle in the message log.
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <param name="vehicle"></param>
         public override void PrintVehicle(IUI ui, Vehicle vehicle)
         {
             ui.AddToMessageLog("Plate number: " + vehicle.LicensePlateNumber);
@@ -179,7 +200,11 @@
             _cylinderVolumeInCC = cylinderVolumeInCC;
         }
 
-
+        /// <summary>
+        /// Prints the known properties for a vehicle in the message log.
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <param name="vehicle"></param>
         public override void PrintVehicle(IUI ui, Vehicle vehicle)
         {
             ui.AddToMessageLog("Plate number: " + vehicle.LicensePlateNumber);
@@ -207,7 +232,11 @@
             _isElectric = isElectric;
         }
 
-
+        /// <summary>
+        /// Prints the known properties for a vehicle in the message log.
+        /// </summary>
+        /// <param name="ui"></param>
+        /// <param name="vehicle"></param>
         public override void PrintVehicle(IUI ui, Vehicle vehicle)
         {
             ui.AddToMessageLog("Plate number: " + vehicle.LicensePlateNumber);

@@ -118,12 +118,13 @@
             GarageManager(handler);
         }
 
-        
+        //ToDo: XML method summary!
         private void LoadGarage()
         {
             //ToDo: Implement Load functionality!
         }
 
+        //ToDo: XML method summary!
         private void SaveGarage()
         {
             //ToDo: Implement Save functionality!
