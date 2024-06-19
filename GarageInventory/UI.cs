@@ -26,7 +26,7 @@
         /// </summary>
         /// <param name="message"></param>
         public void WriteLine(string message) { Console.WriteLine(message); }
-        
+
         /// <summary>
         /// Pauses the application and waits for the next keypress on the keyboard.
         /// </summary>

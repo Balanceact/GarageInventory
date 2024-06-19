@@ -39,6 +39,19 @@
         public override string ToString() => _licensePlateNumber + " " + _make + " " + _model + " " + _color;
 
         /// <summary>
+        /// Provides a full description of the vehicle based on defining characteristics.
+        /// </summary>
+        /// <returns></returns>
+        public virtual string AllProperties() => LicensePlateNumber + ", "
+                                               + Make + ", "
+                                               + Model + ", "
+                                               + Year + ", "
+                                               + NumberOfWheels + " wheels, "
+                                               + Color + ", "
+                                               + Description + ", is for rent: "
+                                               + ForRent;
+
+        /// <summary>
         /// Prints the known properties for a vehicle in the message log.
         /// </summary>
         /// <param name="ui"></param>
@@ -70,6 +83,22 @@
             _wingspan = wingspan;
             _numberOfEngines = numberOfEngines;
         }
+
+        /// <summary>
+        /// Provides a full description of the vehicle based on defining characteristics.
+        /// </summary>
+        /// <returns></returns>
+        public override string AllProperties() => LicensePlateNumber + ", "
+                                                + this.GetType().Name + ", "
+                                                + Make + ", "
+                                                + Model + ", "
+                                                + Year + ", "
+                                                + NumberOfWheels + " wheels, "
+                                                + Color + ", "
+                                                + Description + ", is for rent: "
+                                                + ForRent + ", "
+                                                + Wingspan + " cm, "
+                                                + NumberOfEngines + " engines";
 
         /// <summary>
         /// Prints the known properties for a vehicle in the message log.
@@ -105,6 +134,21 @@
         }
 
         /// <summary>
+        /// Provides a full description of the vehicle based on defining characteristics.
+        /// </summary>
+        /// <returns></returns>
+        public override string AllProperties() => LicensePlateNumber + ", "
+                                                + this.GetType().Name + ", "
+                                                + Make + ", "
+                                                + Model + ", "
+                                                + Year + ", "
+                                                + NumberOfWheels + " wheels, "
+                                                + Color + ", "
+                                                + Description + ", is for rent: "
+                                                + ForRent + ", "
+                                                + Length + " cm";
+
+        /// <summary>
         /// Prints the known properties for a vehicle in the message log.
         /// </summary>
         /// <param name="ui"></param>
@@ -135,6 +179,21 @@
         {
             _numberOfSeats = numberOfSeats;
         }
+
+        /// <summary>
+        /// Provides a full description of the vehicle based on defining characteristics.
+        /// </summary>
+        /// <returns></returns>
+        public override string AllProperties() => LicensePlateNumber + ", "
+                                                + this.GetType().Name + ", "
+                                                + Make + ", "
+                                                + Model + ", "
+                                                + Year + ", "
+                                                + NumberOfWheels + " wheels, "
+                                                + Color + ", "
+                                                + Description + ", is for rent: "
+                                                + ForRent + ", "
+                                                + NumberOfSeats + " seats";
 
         /// <summary>
         /// Prints the known properties for a vehicle in the message log.
@@ -169,6 +228,21 @@
         }
 
         /// <summary>
+        /// Provides a full description of the vehicle based on defining characteristics.
+        /// </summary>
+        /// <returns></returns>
+        public override string AllProperties() => LicensePlateNumber + ", "
+                                                + this.GetType().Name + ", "
+                                                + Make + ", "
+                                                + Model + ", "
+                                                + Year + ", "
+                                                + NumberOfWheels + " wheels, "
+                                                + Color + ", "
+                                                + Description + ", is for rent: "
+                                                + ForRent + ", "
+                                                + FuelType;
+
+        /// <summary>
         /// Prints the known properties for a vehicle in the message log.
         /// </summary>
         /// <param name="ui"></param>
@@ -201,6 +275,21 @@
         }
 
         /// <summary>
+        /// Provides a full description of the vehicle based on defining characteristics.
+        /// </summary>
+        /// <returns></returns>
+        public override string AllProperties() => LicensePlateNumber + ", "
+                                                + this.GetType().Name + ", "
+                                                + Make + ", "
+                                                + Model + ", "
+                                                + Year + ", "
+                                                + NumberOfWheels + " wheels, "
+                                                + Color + ", "
+                                                + Description + ", is for rent: "
+                                                + ForRent + ", "
+                                                + CylinderVolumeInCC + " cc";
+
+        /// <summary>
         /// Prints the known properties for a vehicle in the message log.
         /// </summary>
         /// <param name="ui"></param>
@@ -215,7 +304,7 @@
             ui.AddToMessageLog("# wheels:     " + vehicle.NumberOfWheels);
             ui.AddToMessageLog("Color:        " + vehicle.Color);
             ui.AddToMessageLog("Is for rent:  " + vehicle.ForRent);
-            ui.AddToMessageLog("Cylinder CC:  " + this.CylinderVolumeInCC);
+            ui.AddToMessageLog("Cylinder cc:  " + this.CylinderVolumeInCC);
             ui.AddToMessageLog(vehicle.Description);
         }
     }
@@ -231,6 +320,21 @@
         {
             _isElectric = isElectric;
         }
+
+        /// <summary>
+        /// Provides a full description of the vehicle based on defining characteristics.
+        /// </summary>
+        /// <returns></returns>
+        public override string AllProperties() => LicensePlateNumber + ", "
+                                                + this.GetType().Name + ", "
+                                                + Make + ", "
+                                                + Model + ", "
+                                                + Year + ", "
+                                                + NumberOfWheels + " wheels, "
+                                                + Color + ", "
+                                                + Description + ", is for rent: "
+                                                + ForRent + ", is electric: "
+                                                + IsElectric;
 
         /// <summary>
         /// Prints the known properties for a vehicle in the message log.

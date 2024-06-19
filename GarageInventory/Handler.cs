@@ -34,12 +34,13 @@
                                                " Is not electric " };
             _vehicleProperties = new List<string>() { " License Plate Number ",
                                                       "         Type         ",
-                                                      "         Make         ", 
-                                                      "         Model        ", 
-                                                      "         Year         ", 
-                                                      "   Number of Wheels   ", 
+                                                      "         Make         ",
+                                                      "         Model        ",
+                                                      "         Year         ",
+                                                      "   Number of Wheels   ",
                                                       "         Color        ",
-                                                      "       For Rent       " };
+                                                      "       For Rent       ",
+                                                      "   All of the above   " };
             _listOfPredefinedVehicles = new List<Vehicle>()
             {
                 new Airplane("N2422V", "Cesna", "140", 2018, 3, "White", "Small single engine" , false, 345, 1),
@@ -130,7 +131,7 @@
         {
             int choice = 1;
             string searchParameter;
-            choice = UI.Menu(choice, _vehicleProperties);
+            choice = UI.Menu(choice, VehicleProperties);
             switch (choice)
             {
                 case 1: //  Search by: LicensePlateNumber
@@ -161,6 +162,22 @@
                     break;
                 case 8: //  Search by: ForRent
 
+                    break;
+                case 9: //  Search by: Everything at once
+                    searchParameter = UI.AskForString("Any property");
+                    List<string> properties = new();
+                    foreach (Vehicle item in ListOfVehicles)
+                    {
+                        properties.Add(item.AllProperties());
+                    }
+                    int i = 0;
+                    List<Vehicle> vehicles = new();
+                    foreach (string item in properties)
+                    {
+                        if (item.Contains(searchParameter))
+                            vehicles.Add(ListOfVehicles[i]);
+                        i++;
+                    }
                     break;
             }
         }
@@ -284,7 +301,7 @@
         {
             int choice = 1;
             for (int i = 0; i < numberOfVehicles; i++)
-            {   
+            {
                 if (_listOfVehicles.IsFull)
                 {
                     UI.AddToMessageLog("The garage is full!");
