@@ -19,7 +19,7 @@
                                                  "      Quit     " };
             _garageManagerMenuList = new List<string>() { "       Add vehicle        ",
                                                           "      Remove vehicle      ",
-                                                          "     List all parked      ",
+                                                          "   Print vehicle stats    ",
                                                           "  List types and amounts  ",
                                                           "          Search          " };
         }
@@ -148,7 +148,8 @@
                         handler.RemoveVehicle(handler.ListAllParked());
                         break;
                     case 3:
-                        handler.ListAllParked();
+                        var vehicle = handler.ListAllParked();
+                        vehicle.PrintVehicle(UI, vehicle);
                         break;
                     case 4:
                         handler.ListTypesAndAmounts();

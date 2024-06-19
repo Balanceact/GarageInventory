@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GarageInventory
+﻿namespace GarageInventory
 {
     public class UI : IUI
     {

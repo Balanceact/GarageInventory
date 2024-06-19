@@ -32,7 +32,8 @@
                                               " Is not for rent " };
             _isElectric = new List<string>() { "   Is electric   ",
                                                " Is not electric " };
-            _vehicleProperties = new List<string>() { " License Plate Number ", 
+            _vehicleProperties = new List<string>() { " License Plate Number ",
+                                                      "         Type         ",
                                                       "         Make         ", 
                                                       "         Model        ", 
                                                       "         Year         ", 
@@ -71,26 +72,26 @@
                 new Bus("BUS007", "Volvo", "9700", 2022, 10, "Blue", "Common bus for inter city public transport.", true, 49),
                 new Bus("BUS008", "Volvo", "9700", 2022, 10, "Red", "Common bus for inter city public transport.", false, 49),
                 new Bus("BUS009", "Volvo", "9700", 2022, 10, "Red", "Common bus for inter city public transport.", true, 49),
-                new Car("SKA540", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
-                new Car("SKA541", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
-                new Car("SKA542", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
-                new Car("SKA543", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
-                new Car("SKA544", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
-                new Car("SKA545", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
-                new Car("SKA546", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
-                new Car("SKA547", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
-                new Car("SKA548", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model with modest interiors and accessories", false, "Gas"),
-                new Car("SKA549", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model with modest interiors and accessories", true, "Gas"),
-                new Car("SAB950", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "White", "Test car used at Millbrook proving grounds in the UK", false, "Diesel"),
-                new Car("SAB951", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "White", "Test car used at Millbrook proving grounds in the UK", true, "Diesel"),
-                new Car("SAB952", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Silver", "Test car used at Millbrook proving grounds in the UK", false, "Diesel"),
-                new Car("SAB953", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Silver", "Test car used at Millbrook proving grounds in the UK", true, "Diesel"),
-                new Car("SAB954", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Black", "Test car used at Millbrook proving grounds in the UK", false, "Diesel"),
-                new Car("SAB955", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Black", "Test car used at Millbrook proving grounds in the UK", true, "Diesel"),
-                new Car("SAB956", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Blue", "Test car used at Millbrook proving grounds in the UK", false, "Diesel"),
-                new Car("SAB957", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Blue", "Test car used at Millbrook proving grounds in the UK", true, "Diesel"),
-                new Car("SAB958", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Red", "Test car used at Millbrook proving grounds in the UK", false, "Diesel"),
-                new Car("SAB959", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Red", "Test car used at Millbrook proving grounds in the UK", true, "Diesel"),
+                new Car("SKA540", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model.", false, "Gas"),
+                new Car("SKA541", "Volvo", "244 DL", 1986, 4, "White", "DL (De Luxe) indicates the base model.", true, "Gas"),
+                new Car("SKA542", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model.", false, "Gas"),
+                new Car("SKA543", "Volvo", "244 DL", 1986, 4, "Silver", "DL (De Luxe) indicates the base model.", true, "Gas"),
+                new Car("SKA544", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model.", false, "Gas"),
+                new Car("SKA545", "Volvo", "244 DL", 1986, 4, "Black", "DL (De Luxe) indicates the base model.", true, "Gas"),
+                new Car("SKA546", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model.", false, "Gas"),
+                new Car("SKA547", "Volvo", "244 DL", 1986, 4, "Blue", "DL (De Luxe) indicates the base model.", true, "Gas"),
+                new Car("SKA548", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model.", false, "Gas"),
+                new Car("SKA549", "Volvo", "244 DL", 1986, 4, "Red", "DL (De Luxe) indicates the base model.", true, "Gas"),
+                new Car("SAB950", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "White", "Only available second-hand.", false, "Diesel"),
+                new Car("SAB951", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "White", "Only available second-hand.", true, "Diesel"),
+                new Car("SAB952", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Silver", "Only available second-hand.", false, "Diesel"),
+                new Car("SAB953", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Silver", "Only available second-hand.", true, "Diesel"),
+                new Car("SAB954", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Black", "Only available second-hand.", false, "Diesel"),
+                new Car("SAB955", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Black", "Only available second-hand.", true, "Diesel"),
+                new Car("SAB956", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Blue", "Only available second-hand.", false, "Diesel"),
+                new Car("SAB957", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Blue", "Only available second-hand.", true, "Diesel"),
+                new Car("SAB958", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Red", "Only available second-hand.", false, "Diesel"),
+                new Car("SAB959", "Saab", "9-5 SportCombi TTiD4", 2011, 4, "Red", "Only available second-hand.", true, "Diesel"),
                 new Car("PEG000", "Peugeot", "e-208 156hp", 2024, 4, "White", "Small and nifty!", false, "Electric"),
                 new Car("PEG001", "Peugeot", "e-208 156hp", 2024, 4, "White", "Small and nifty!", true, "Electric"),
                 new Car("PEG002", "Peugeot", "e-208 156hp", 2024, 4, "Silver", "Small and nifty!", false, "Electric"),
@@ -101,16 +102,16 @@
                 new Car("PEG007", "Peugeot", "e-208 156hp", 2024, 4, "Blue", "Small and nifty!", true, "Electric"),
                 new Car("PEG008", "Peugeot", "e-208 156hp", 2024, 4, "Red", "Small and nifty!", false, "Electric"),
                 new Car("PEG009", "Peugeot", "e-208 156hp", 2024, 4, "Red", "Small and nifty!", true, "Electric"),
-                new Motorcycle("FAT000", "Harley Davidson", "Fat Boy 114", 2022, 2, "White", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", false, 1690),
-                new Motorcycle("FAT001", "Harley Davidson", "Fat Boy 114", 2022, 2, "White", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", true, 1690),
-                new Motorcycle("FAT002", "Harley Davidson", "Fat Boy 114", 2022, 2, "Silver", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", false, 1690),
-                new Motorcycle("FAT003", "Harley Davidson", "Fat Boy 114", 2022, 2, "Silver", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", true, 1690),
-                new Motorcycle("FAT004", "Harley Davidson", "Fat Boy 114", 2022, 2, "Black", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", false, 1690),
-                new Motorcycle("FAT005", "Harley Davidson", "Fat Boy 114", 2022, 2, "Black", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", true, 1690),
-                new Motorcycle("FAT006", "Harley Davidson", "Fat Boy 114", 2022, 2, "Blue", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", false, 1690),
-                new Motorcycle("FAT007", "Harley Davidson", "Fat Boy 114", 2022, 2, "Blue", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", true, 1690),
-                new Motorcycle("FAT008", "Harley Davidson", "Fat Boy 114", 2022, 2, "Red", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", false, 1690),
-                new Motorcycle("FAT009", "Harley Davidson", "Fat Boy 114", 2022, 2, "Red", "The Harley-Davidson Fat Boy, is a V-twin softail cruiser motorcycle with solid-cast disc wheels.", true, 1690),
+                new Motorcycle("FAT000", "Harley Davidson", "Fat Boy 114", 2022, 2, "White", "A V-twin softail cruiser.", false, 1690),
+                new Motorcycle("FAT001", "Harley Davidson", "Fat Boy 114", 2022, 2, "White", "A V-twin softail cruiser.", true, 1690),
+                new Motorcycle("FAT002", "Harley Davidson", "Fat Boy 114", 2022, 2, "Silver", "A V-twin softail cruiser.", false, 1690),
+                new Motorcycle("FAT003", "Harley Davidson", "Fat Boy 114", 2022, 2, "Silver", "A V-twin softail cruiser.", true, 1690),
+                new Motorcycle("FAT004", "Harley Davidson", "Fat Boy 114", 2022, 2, "Black", "A V-twin softail cruiser.", false, 1690),
+                new Motorcycle("FAT005", "Harley Davidson", "Fat Boy 114", 2022, 2, "Black", "A V-twin softail cruiser.", true, 1690),
+                new Motorcycle("FAT006", "Harley Davidson", "Fat Boy 114", 2022, 2, "Blue", "A V-twin softail cruiser.", false, 1690),
+                new Motorcycle("FAT007", "Harley Davidson", "Fat Boy 114", 2022, 2, "Blue", "A V-twin softail cruiser.", true, 1690),
+                new Motorcycle("FAT008", "Harley Davidson", "Fat Boy 114", 2022, 2, "Red", "A V-twin softail cruiser.", false, 1690),
+                new Motorcycle("FAT009", "Harley Davidson", "Fat Boy 114", 2022, 2, "Red", "A V-twin softail cruiser.", true, 1690),
                 new Truck("TRK000", "Scania", "P360", 2024, 10, "White", "Compact with a low cab weight", false, false),
                 new Truck("TRK001", "Scania", "P360", 2024, 10, "White", "Compact with a low cab weight", true, false),
                 new Truck("TRK002", "Scania", "P360", 2024, 10, "Silver", "Compact with a low cab weight", false, false),
@@ -128,7 +129,37 @@
         public void Search()
         {
             //ToDo: Implement LinQ Search functionality!
+            int choice = 1;
+            string searchParameter;
+            choice = UI.Menu(choice, _vehicleProperties);
+            switch (choice)
+            {
+                case 1: //  Search by: LicensePlateNumber
+                    searchParameter = UI.AskForString("License plate number");
 
+                    break;
+                case 2: //  Search by: Type
+
+                    break;
+                case 3: //  Search by: Make
+
+                    break;
+                case 4: //  Search by: Model
+
+                    break;
+                case 5: //  Search by: Year
+
+                    break;
+                case 6: //  Search by: NumberOfWheels
+
+                    break;
+                case 7: //  Search by: Color
+
+                    break;
+                case 8: //  Search by: ForRent
+
+                    break;
+            }
         }
 
         /// <summary>
