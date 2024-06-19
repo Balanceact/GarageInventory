@@ -136,7 +136,11 @@
             {
                 case 1: //  Search by: LicensePlateNumber
                     searchParameter = UI.AskForString("License plate number").Trim();
-
+                    var vehicle = SearchByLicensePlateNumber(searchParameter);
+                    if (vehicle == null)
+                        UI.AddToMessageLog("License plate number not found!");
+                    else
+                        vehicle.PrintVehicle(UI, vehicle);
                     break;
                 case 2: //  Search by: Type
 
@@ -160,6 +164,19 @@
 
                     break;
             }
+        }
+
+        //ToDo: XML method summary!
+        public Vehicle SearchByLicensePlateNumber(string searchParameter)
+        {
+            foreach (Vehicle item in ListOfVehicles)
+            {
+                if (item.LicensePlateNumber.ToUpper() == searchParameter.ToUpper())
+                {
+                    return item;
+                }
+            }
+            return null!;
         }
 
         /// <summary>

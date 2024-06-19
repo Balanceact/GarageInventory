@@ -185,7 +185,7 @@
         {
             bool notChosen = true;
             Clear();
-            AddToMessageLog("Using the up & down arrow keys & enter, esc for menu.");
+            AddToMessageLog("Use the up & down arrow keys & enter, esc for menu.");
             do
             {
                 PrintMenu(choice, menu);
