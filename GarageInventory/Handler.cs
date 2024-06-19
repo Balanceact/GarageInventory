@@ -174,10 +174,17 @@
                     List<Vehicle> vehicles = new();
                     foreach (string item in properties)
                     {
-                        if (item.Contains(searchParameter))
+                        if (item.Contains(searchParameter))     // ToDo: Refine search!
                             vehicles.Add(ListOfVehicles[i]);
                         i++;
                     }
+                    List<string> vehiclesToPrint = new();
+                    foreach (Vehicle item in vehicles)
+                    {
+                        vehiclesToPrint.Add(item.ToString());
+                    }
+                    int choice2 = 1;
+                    UI.Menu(choice2, vehiclesToPrint);
                     break;
             }
         }

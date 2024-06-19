@@ -60,8 +60,6 @@ namespace GarageInventory
         /// <summary>
         /// Returns a List<string> of the '.ToString' elements for every vehicle in the array. 
         /// </summary>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
         /// <returns></returns>
         public List<string> AllParkedToString()
         {

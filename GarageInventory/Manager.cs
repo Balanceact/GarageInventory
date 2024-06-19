@@ -29,7 +29,14 @@
         public void Run()
         {
             Initialize();
-            MainMenu();
+            try
+            {
+                MainMenu();
+            }
+            catch (Exception ex) //ToDo: Catch exceptions properly!
+            {
+
+            }
         }
 
         /// <summary>
