@@ -33,14 +33,7 @@
             _isElectric = new List<string>() { "   Is electric   ",
                                                " Is not electric " };
             _vehicleProperties = new List<string>() { " License Plate Number ",
-                                                      "         Type         ",
-                                                      "         Make         ",
-                                                      "         Model        ",
-                                                      "         Year         ",
-                                                      "   Number of Wheels   ",
-                                                      "         Color        ",
-                                                      "       For Rent       ",
-                                                      "   All of the above   " };
+                                                      "  All the properties  " };
             _listOfPredefinedVehicles = new List<Vehicle>()
             {
                 new Airplane("N2422V", "Cesna", "140", 2018, 3, "White", "Small single engine" , false, 345, 1),
@@ -174,7 +167,9 @@
             };
         }
 
-        //ToDo: Implement LinQ Search functionality! XML method summary!
+        /// <summary>
+        /// Searches the vehicles in the garage to match their properties to the search terms.
+        /// </summary>
         public void Search()
         {
             int choice = 1;
@@ -190,28 +185,7 @@
                     else
                         vehicle.PrintVehicle(UI, vehicle);
                     break;
-                case 2: //  Search by: Type
-
-                    break;
-                case 3: //  Search by: Make
-
-                    break;
-                case 4: //  Search by: Model
-
-                    break;
-                case 5: //  Search by: Year
-
-                    break;
-                case 6: //  Search by: NumberOfWheels
-
-                    break;
-                case 7: //  Search by: Color
-
-                    break;
-                case 8: //  Search by: ForRent
-
-                    break;
-                case 9: //  Search by: Everything at once
+                case 2: //  Search by: All the properties
                     searchParameter = UI.AskForString("Any property");
                     List<string> properties = new();
                     foreach (Vehicle item in ListOfVehicles)
@@ -220,10 +194,16 @@
                     }
                     int i = 0;
                     List<Vehicle> vehicles = new();
-                    foreach (string item in properties)
+                    string[] query = searchParameter.Split(' ');
+                    foreach (string item in properties)                 
                     {
-                        if (item.Contains(searchParameter))     // ToDo: Refine search!
-                            vehicles.Add(ListOfVehicles[i]);
+                        for (int j = 0; j < query.Length; j++)
+                        {
+                            if (item.ToLower().Contains(query[j].ToLower()))    // ToDo: Refine search!
+                            {
+                                vehicles.Add(ListOfVehicles[i]);
+                            }
+                        }
                         i++;
                     }
                     List<string> vehiclesToPrint = new();
@@ -232,7 +212,8 @@
                         vehiclesToPrint.Add(item.ToString());
                     }
                     int choice2 = 1;
-                    UI.Menu(choice2, vehiclesToPrint);
+                    choice2 = UI.MenuPaged(choice2, vehiclesToPrint);
+                    vehicles[choice2 - 1].PrintVehicle(UI, vehicles[choice2 - 1]);
                     break;
             }
         }

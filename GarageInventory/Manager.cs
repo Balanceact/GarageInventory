@@ -115,9 +115,9 @@
                 {
                     incorrect = false;
                 }
-                if (predefined > 80)
+                if (predefined > 128)
                 {
-                    UI.AddToMessageLog("Invalid number. Cant be higher than 80.");
+                    UI.AddToMessageLog("Invalid number. Cant be higher than 128.");
                     incorrect = true;
                 }
             } while (incorrect);
