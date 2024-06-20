@@ -102,7 +102,7 @@
             incorrect = true;
             do
             {
-                predefined = UI.AskForInt("Number of prepopulated to automatically define (max 80)");
+                predefined = UI.AskForInt("Number of prepopulated to automatically define (max 128)");
                 if (predefined > prepopulated)
                 {
                     UI.AddToMessageLog("Invalid number. Cant be higher than number to prepopulate.");
